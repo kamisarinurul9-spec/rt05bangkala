@@ -1,35 +1,36 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("loginForm");
-    if (!form) return;
+// akun demo
+const users = [
+  { username: "admin", password: "admin123", role: "admin" },
+  { username: "warga", password: "warga123", role: "warga" }
+];
 
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
+function login(event) {
+  event.preventDefault();
 
-        const username = document.getElementById("username").value.trim();
-        const password = document.getElementById("password").value.trim();
+  const username = document.getElementById("user").value;
+  const password = document.getElementById("pass").value;
 
-        // Database user statis (bisa ditambah)
-        const USERS = {
-            "admin": { pass: "admin123", role: "admin" },
-            "warga": { pass: "warga123", role: "warga" }
-        };
+  const findUser = users.find(
+    u => u.username === username && u.password === password
+  );
 
-        // Validasi
-        if (!USERS[username] || USERS[username].pass !== password) {
-            alert("Username atau password salah!");
-            return;
-        }
+  if (!findUser) {
+    alert("Username atau password salah!");
+    return;
+  }
 
-        // Jika benar → simpan sesi login
-        localStorage.setItem("rt05_logged", "true");
-        localStorage.setItem("rt05_role", USERS[username].role);
-        localStorage.setItem("rt05_user", username);
+  // simpan session
+  localStorage.setItem("user", JSON.stringify(findUser));
 
-        // Redirect berdasarkan role
-        if (USERS[username].role === "admin") {
-            window.location.href = "admin-dashboard.html";
-        } else {
-            window.location.href = "warga-dashboard.html";
-        }
-    });
-});
+  // redirect sesuai role
+  if (findUser.role === "admin") {
+    window.location.href = "admin-dashboard.html";
+  } else {
+    window.location.href = "warga-dashboard.html";
+  }
+}
+
+function logout() {
+  localStorage.removeItem("user");
+  window.location.href = "login.html";
+}
