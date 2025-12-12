@@ -1,23 +1,31 @@
+const users = [
+  { username: "admin", password: "admin123", level: "admin" },
+  { username: "warga", password: "warga123", level: "warga" }
+];
+
 function login() {
-    let user = document.getElementById("username").value;
-    let pass = document.getElementById("password").value;
-    let error = document.getElementById("error");
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
 
-    if (user === "adminrt05" && pass === "bangkala2025") {
-        localStorage.setItem("rt05_login", "true");
-        window.location.href = "dashboard.html";
-    } else {
-        error.textContent = "❌ Username atau password salah!";
-    }
-}
+  const user = users.find(
+    u => u.username === username && u.password === password
+  );
 
-function checkLogin() {
-    if (localStorage.getItem("rt05_login") !== "true") {
-        window.location.href = "login.html";
-    }
+  if (!user) {
+    alert("Username atau password salah!");
+    return;
+  }
+
+  localStorage.setItem("user", JSON.stringify(user));
+
+  if (user.level === "admin") {
+    window.location.href = "admin-dashboard.html";
+  } else {
+    window.location.href = "warga-dashboard.html";
+  }
 }
 
 function logout() {
-    localStorage.removeItem("rt05_login");
-    window.location.href = "login.html";
+  localStorage.removeItem("user");
+  window.location.href = "login.html";
 }
