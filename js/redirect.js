@@ -1,11 +1,12 @@
-// redirect.js — protect pages (only login.html and index.html allowed public)
-const publicPages = ['login.html','index.html'];
-const current = window.location.pathname.split('/').pop() || 'index.html';
+// redirect.js
 
-if (!publicPages.includes(current)) {
-  const user = JSON.parse(localStorage.getItem('rtUser'));
-  if (!user) {
-    // not logged in → go to login
-    window.location.href = 'login.html';
+document.addEventListener("DOMContentLoaded", () => {
+  // Protect admin pages
+  const path = window.location.pathname.split("/").pop();
+
+  if(["admin-dashboard.html"].includes(path)) {
+    checkAuth("admin");
+  } else if(["warga-dashboard.html"].includes(path)) {
+    checkAuth("warga");
   }
-}
+});
