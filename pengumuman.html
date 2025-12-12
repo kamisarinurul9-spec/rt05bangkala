@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pengumuman - RT 05</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
+<div id="mobileOverlay"></div>
+
+<header class="mobile-header">
+  <button id="mobileMenuBtn">☰</button>
+  <span>Pengumuman RT 05</span>
+  <button id="darkToggle">🌙</button>
+</header>
+
 <aside class="sidebar">
-  <div class="brand"><img src="images/logo.png"><h2>RT 05</h2></div>
-  <nav class="side-nav">
+  <div class="brand">
+    <img src="images/logo.png">
+    <h2>RT 05</h2>
+  </div>
+
+  <nav>
     <a href="admin-dashboard.html">🏠 Dashboard</a>
     <a class="active" href="pengumuman.html">📢 Pengumuman</a>
     <a href="layanan-surat.html">📄 Layanan Surat</a>
@@ -17,27 +30,37 @@
     <a href="about.html">ℹ️ Tentang RT</a>
     <a href="kontak.html">☎️ Kontak</a>
   </nav>
+
   <div class="sidebar-actions">
-    <button class="btn" data-toggle-theme>🌓 Dark Mode</button>
+    <button class="btn" id="sidebarDarkToggle">🌓 Dark Mode</button>
     <button class="logout-btn" onclick="logout()">Logout</button>
   </div>
 </aside>
 
-<div class="mobile-top">
-  <button class="btn" data-mobile-menu>☰</button>
-  <div class="mobile-title">RT 05 - Pengumuman</div>
-  <button class="btn" data-toggle-theme>🌓</button>
-</div>
-
 <main class="content">
-  <h1>Pengumuman RT</h1>
-  <div class="container">
-    <p>Isi pengumuman terbaru akan tampil di sini...</p>
-  </div>
+  <h1>Pengumuman</h1>
+
+  <section class="cards">
+    <div class="card">
+      <h3>Kerja Bakti</h3>
+      <p>Sabtu, 15 Januari 2025</p>
+    </div>
+
+    <div class="card">
+      <h3>Iuran Kebersihan</h3>
+      <p>Dibayarkan sebelum akhir bulan</p>
+    </div>
+
+    <div class="card">
+      <h3>Rapat Warga</h3>
+      <p>Hari Minggu, Balai RW</p>
+    </div>
+  </section>
 </main>
 
 <script src="js/auth.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/redirect.js"></script>
+
 </body>
 </html>
