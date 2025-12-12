@@ -5,35 +5,32 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#0d47a1">
   <title>Warga Dashboard - RT 05</title>
-  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
-  <aside class="sidebar" aria-label="Sidebar">
+  <aside class="sidebar">
     <div class="brand">
       <img src="images/logo.png" alt="Logo">
       <h2>RT 05</h2>
     </div>
-
     <nav class="side-nav">
-      <a class="active" href="warga-dashboard.html"><span class="icon">🏠</span><span class="nav-label">Dashboard</span><span class="nav-short">DB</span></a>
-      <a href="pengumuman.html"><span class="icon">📢</span><span class="nav-label">Pengumuman</span><span class="nav-short">PG</span></a>
-      <a href="layanan-surat.html"><span class="icon">📄</span><span class="nav-label">Layanan Surat</span><span class="nav-short">LS</span></a>
-      <a href="piket.html"><span class="icon">📅</span><span class="nav-label">Piket</span><span class="nav-short">PK</span></a>
-      <a href="about.html"><span class="icon">ℹ️</span><span class="nav-label">Tentang RT</span><span class="nav-short">TB</span></a>
-      <a href="kontak.html"><span class="icon">☎️</span><span class="nav-label">Kontak</span><span class="nav-short">CT</span></a>
+      <a class="active" href="warga-dashboard.html"><span class="icon">🏠</span><span class="nav-label">Dashboard</span></a>
+      <a href="pengumuman.html"><span class="icon">📢</span><span class="nav-label">Pengumuman</span></a>
+      <a href="layanan-surat.html"><span class="icon">📄</span><span class="nav-label">Layanan Surat</span></a>
+      <a href="piket.html"><span class="icon">📅</span><span class="nav-label">Piket</span></a>
+      <a href="about.html"><span class="icon">ℹ️</span><span class="nav-label">Tentang RT</span></a>
+      <a href="kontak.html"><span class="icon">☎️</span><span class="nav-label">Kontak</span></a>
     </nav>
-
     <div class="sidebar-actions">
-      <button class="btn" data-toggle-sidebar title="Toggle sidebar">⬅️</button>
-      <button class="btn" data-toggle-theme title="Toggle theme">🌓</button>
+      <button class="btn" data-toggle-sidebar>⬅️</button>
+      <button class="btn" data-toggle-theme>🌓</button>
       <button class="logout-btn" onclick="logout()">Logout</button>
     </div>
   </aside>
 
   <div class="mobile-top">
     <button class="mobile-menu-btn" data-mobile-menu>☰</button>
-    <div class="mobile-title">RT 05 - Warga</div>
+    <div class="mobile-title">Dashboard Warga</div>
     <button class="btn" data-toggle-theme>🌓</button>
   </div>
 
@@ -55,7 +52,6 @@
   <script src="js/redirect.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/ui.js"></script>
-
   <script>
     const user = JSON.parse(localStorage.getItem('rtUser'));
     document.getElementById('welcomeW').innerText = user ? `Selamat datang, ${user.username}` : '';
