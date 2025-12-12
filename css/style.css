@@ -1,6 +1,6 @@
-/* ---------------------------------------------------------
-   RESET & GLOBAL
-----------------------------------------------------------*/
+/* =======================================
+   GLOBAL RESET
+======================================= */
 * {
   margin: 0;
   padding: 0;
@@ -10,9 +10,7 @@
 body {
   font-family: "Poppins", sans-serif;
   background: #f4f6f9;
-  color: #333;
-  min-height: 100vh;
-  display: flex;
+  color: #222;
   transition: background 0.3s, color 0.3s;
 }
 
@@ -21,251 +19,258 @@ a {
   color: inherit;
 }
 
-
-/* ---------------------------------------------------------
+/* =======================================
    DARK MODE
-----------------------------------------------------------*/
+======================================= */
 body.dark {
-  background: #1a1b1f;
-  color: #f0f0f0;
+  background: #121212;
+  color: #eaeaea;
 }
 
 body.dark .sidebar {
-  background: #121317;
-  border-right: 1px solid #222;
+  background: #1c1c1c;
+  border-right: 1px solid #333;
 }
 
-body.dark .sidebar a {
-  color: #e0e0e0;
+body.dark .side-nav a {
+  color: #ddd;
 }
 
-body.dark .sidebar a.active,
-body.dark .sidebar a:hover {
-  background: #22242b;
+body.dark .side-nav a.active,
+body.dark .side-nav a:hover {
+  background: #333;
 }
 
 body.dark .content {
-  background: #1a1b1f;
+  background: #121212;
 }
 
 body.dark .card {
-  background: #24262d;
-  color: #fff;
+  background: #1d1d1d;
   border-color: #333;
 }
 
-
-/* ---------------------------------------------------------
-   SIDEBAR
-----------------------------------------------------------*/
-.sidebar {
-  width: 260px;
-  background: #ffffff;
-  border-right: 1px solid #ddd;
-  padding: 20px;
-  position: fixed;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  transition: 0.3s;
-  z-index: 1000;
+body.dark .info-box {
+  background: #1d1d1d;
+  border-color: #333;
 }
 
-.sidebar.collapsed {
-  width: 70px;
+body.dark input,
+body.dark select,
+body.dark textarea {
+  background: #222;
+  color: #fff;
+  border-color: #444;
+}
+
+/* =======================================
+   SIDEBAR
+======================================= */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background: #fff;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  transition: transform 0.3s ease;
+  z-index: 999;
 }
 
 .sidebar .brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  overflow: hidden;
+  text-align: center;
 }
 
 .sidebar .brand img {
-  width: 45px;
-  height: 45px;
-  object-fit: contain;
+  width: 70px;
+  margin-bottom: 10px;
 }
 
-.sidebar.collapsed .brand h2 {
-  display: none;
+.sidebar .brand h2 {
+  font-size: 22px;
 }
 
-.sidebar nav {
-  margin-top: 30px;
+.side-nav {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
 }
 
-.sidebar a {
+.side-nav a {
   padding: 12px;
-  border-radius: 10px;
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  transition: 0.2s;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-weight: 500;
 }
 
-.sidebar a:hover {
-  background: #f3f3f3;
-}
-
-.sidebar a.active {
+.side-nav a:hover,
+.side-nav a.active {
   background: #0d6efd;
   color: #fff;
 }
 
-.sidebar .sidebar-actions {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.btn, .logout-btn {
-  padding: 12px;
-  border: none;
-  border-radius: 10px;
-  background: #0d6efd;
-  color: white;
+/* BUTTONS */
+.btn {
+  padding: 10px 14px;
+  background: #ddd;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 15px;
+  border: none;
+  font-weight: 600;
 }
 
 .logout-btn {
-  background: #dc3545;
-}
-
-
-/* ---------------------------------------------------------
-   MOBILE SIDEBAR
-----------------------------------------------------------*/
-#mobileMenuBtn {
-  background: none;
-  border: none;
-  font-size: 26px;
+  padding: 10px;
+  background: #e63946;
+  color: #fff;
+  border-radius: 6px;
   cursor: pointer;
-}
-
-.mobile-header {
-  display: none;
-  position: fixed;
-  top: 0;
+  border: none;
   width: 100%;
-  padding: 12px 20px;
+  margin-top: 10px;
+}
+
+/* SIDEBAR ACTIONS */
+.sidebar-actions {
+  position: absolute;
+  bottom: 20px;
+  width: 200px;
+}
+
+/* =======================================
+   MOBILE SIDEBAR BEHAVIOUR
+======================================= */
+
+.mobile-top {
+  display: none;
+  width: 100%;
+  padding: 12px;
   background: #fff;
-  display: flex;
-  justify-content: space-between;
-  z-index: 1200;
   border-bottom: 1px solid #ddd;
+  align-items: center;
+  justify-content: space-between;
 }
 
-body.dark .mobile-header {
-  background: #121317;
+.mobile-title {
+  font-size: 18px;
+  font-weight: 600;
 }
 
-.sidebar.open {
-  transform: translateX(0);
-}
-
+/* Sidebar hidden on mobile */
 @media (max-width: 768px) {
   .sidebar {
-    transform: translateX(-300px);
+    transform: translateX(-260px);
   }
   .sidebar.open {
     transform: translateX(0);
   }
-}
 
+  .mobile-top {
+    display: flex;
+  }
 
-/* Overlay saat sidebar mobile dibuka */
-#mobileOverlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100vh;
-  background: rgba(0,0,0,0.4);
-  z-index: 999;
-  display: none;
-}
-
-#mobileOverlay.show {
-  display: block;
-}
-
-
-/* ---------------------------------------------------------
-   CONTENT AREA
-----------------------------------------------------------*/
-.content {
-  margin-left: 260px;
-  padding: 30px;
-  width: 100%;
-  transition: margin-left 0.3s;
-}
-
-.sidebar.collapsed ~ .content {
-  margin-left: 70px;
-}
-
-@media (max-width: 768px) {
-  .content {
-    margin-left: 0;
-    margin-top: 70px;
+  main.content {
+    margin-left: 0 !important;
   }
 }
 
+/* =======================================
+   CONTENT AREA
+======================================= */
 
-/* ---------------------------------------------------------
-   DASHBOARD CARDS
-----------------------------------------------------------*/
+main.content {
+  margin-left: 260px;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+/* CARDS */
 .cards {
-  margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   gap: 20px;
 }
 
 .card {
-  background: white;
   padding: 20px;
-  border-radius: 15px;
+  background: #fff;
+  border-radius: 12px;
   border: 1px solid #ddd;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.08);
   transition: 0.2s;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-}
-
-
-/* ---------------------------------------------------------
-   FORMS
-----------------------------------------------------------*/
-input, select, textarea {
-  width: 100%;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  margin-top: 10px;
-}
-
-button {
   cursor: pointer;
 }
 
+.card:hover {
+  transform: scale(1.03);
+}
 
-/* ---------------------------------------------------------
-   BADGE NOTIFIKASI
-----------------------------------------------------------*/
-.notif-badge {
-  background: #e63946;
+/* INFO BOX */
+.info-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+}
+
+/* FORM */
+.form-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+}
+
+input, select, textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* =======================================
+   LOGIN PAGE
+======================================= */
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-box {
+  width: 90%;
+  max-width: 380px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.login-logo {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.login-box input {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.btn.primary {
+  width: 100%;
+  margin-top: 15px;
+  background: #0d6efd;
   color: white;
-  padding: 3px 7px;
-  font-size: 11px;
-  border-radius: 50%;
-  margin-left: 6px;
-  display: none;
 }
