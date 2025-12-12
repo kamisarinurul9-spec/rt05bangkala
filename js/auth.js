@@ -1,31 +1,46 @@
 // auth.js
-// simple client-side authentication (demo only)
-const USERS = [
+
+// Akun demo
+const users = [
   { username: "admin", password: "admin123", role: "admin" },
   { username: "warga", password: "warga123", role: "warga" }
 ];
 
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('loginForm');
-  if (form) {
-    form.addEventListener('submit', function(e){
+// Login form
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.getElementById("loginForm");
+  if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const username = (document.getElementById('username') || document.getElementById('user')).value.trim();
-      const password = (document.getElementById('password') || document.getElementById('pass')).value.trim();
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
 
-      const found = USERS.find(u => u.username === username && u.password === password);
-      if (!found) { alert('Username atau password salah!'); return; }
-      // simpan session
-      localStorage.setItem('rtUser', JSON.stringify(found));
-      // redirect
-      if (found.role === 'admin') window.location.href = 'admin-dashboard.html';
-      else window.location.href = 'warga-dashboard.html';
+      const user = users.find(u => u.username === username && u.password === password);
+      if (user) {
+        localStorage.setItem("rtUser", JSON.stringify(user));
+        alert(`Selamat datang, ${user.username}`);
+        if(user.role === "admin") window.location.href = "admin-dashboard.html";
+        else window.location.href = "warga-dashboard.html";
+      } else {
+        alert("Username atau password salah!");
+      }
     });
   }
 });
 
-// logout helper (global)
-function logout(){
-  localStorage.removeItem('rtUser');
-  window.location.href = 'login.html';
+// Logout function
+function logout() {
+  localStorage.removeItem("rtUser");
+  window.location.href = "login.html";
+}
+
+// Redirect if not logged in
+function checkAuth(requiredRole) {
+  const user = JSON.parse(localStorage.getItem("rtUser"));
+  if (!user) {
+    window.location.href = "login.html";
+  } else if (requiredRole && user.role !== requiredRole) {
+    alert("Anda tidak memiliki akses ke halaman ini!");
+    window.location.href = "login.html";
+  }
 }
