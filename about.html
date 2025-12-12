@@ -7,8 +7,13 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
 <aside class="sidebar">
-  <div class="brand"><img src="images/logo.png"><h2>RT 05</h2></div>
+  <div class="brand">
+    <img src="images/logo.png">
+    <h2>RT 05</h2>
+  </div>
+
   <nav class="side-nav">
     <a href="admin-dashboard.html">🏠 Dashboard</a>
     <a href="pengumuman.html">📢 Pengumuman</a>
@@ -17,6 +22,7 @@
     <a class="active" href="about.html">ℹ️ Tentang RT</a>
     <a href="kontak.html">☎️ Kontak</a>
   </nav>
+
   <div class="sidebar-actions">
     <button class="btn" data-toggle-theme>🌓 Dark Mode</button>
     <button class="logout-btn" onclick="logout()">Logout</button>
@@ -31,13 +37,76 @@
 
 <main class="content">
   <h1>Tentang RT 05</h1>
-  <div class="container">
-    <p>Deskripsi RT 05, sejarah, visi & misi, struktur organisasi...</p>
-  </div>
+
+  <section class="about-section">
+
+    <h2>Profil Singkat RT 05</h2>
+    <p>
+      RT 05 merupakan salah satu wilayah di Kelurahan Bangkala, Kecamatan Manggala,
+      Kota Makassar. RT ini memiliki lingkungan yang aktif, harmonis, serta penuh
+      dengan kegiatan sosial yang melibatkan warga dari berbagai kalangan.
+    </p>
+
+    <h2>Sejarah Singkat</h2>
+    <p>
+      RT 05 resmi terbentuk tahun ini yaitu 2025 sebagai bagian dari pembenahan 
+      administrasi wilayah oleh pemerintah setempat. yang sebelumnya masih menjadi bagian dari RT 01.
+      Seiring berjalannya waktu,
+      RT 05 akan berkembang menjadi lingkungan yang lebih modern, tertata, serta
+      didukung oleh berbagai kegiatan kemasyarakatan, gotong royong, kepemudaan,
+      dan pelayanan publik yang lebih cepat melalui digitalisasi.
+    </p>
+
+    <h2>Visi</h2>
+    <p>
+      “Mewujudkan lingkungan RT 05 yang aman, tertib, modern, dan harmonis melalui
+      kolaborasi warga dan pelayanan yang transparan.”
+    </p>
+
+    <h2>Misi</h2>
+    <ul>
+      <li>Meningkatkan pelayanan administrasi warga secara cepat dan mudah.</li>
+      <li>Mendorong partisipasi aktif warga dalam kegiatan sosial dan lingkungan.</li>
+      <li>Memperkuat keamanan, kebersihan, dan kenyamanan lingkungan.</li>
+      <li>Mendorong digitalisasi layanan RT dan transparansi informasi.</li>
+    </ul>
+
+    <h2>Struktur Organisasi RT 05</h2>
+
+    <div class="struktur">
+      <div class="struktur-card">
+        <h3>Ketua RT</h3>
+        <p><strong>Nama:</strong> Abdul Rahman</p>
+      </div>
+
+      <div class="struktur-card">
+        <h3>Sekretaris</h3>
+        <p><strong>Nama:</strong> Sitti Aminah</p>
+      </div>
+
+      <div class="struktur-card">
+        <h3>Bendahara</h3>
+        <p><strong>Nama:</strong> Irwan Saputra</p>
+      </div>
+
+      <div class="struktur-card">
+        <h3>Ketua Pemuda</h3>
+        <p><strong>Nama:</strong> Ahmad Faisal</p>
+      </div>
+
+      <div class="struktur-card">
+        <h3>Koordinator Keamanan</h3>
+        <p><strong>Nama:</strong> Baharuddin</p>
+      </div>
+    </div>
+
+  </section>
+
 </main>
 
 <script src="js/auth.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/redirect.js"></script>
+
 </body>
 </html>
