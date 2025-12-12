@@ -3,62 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tentang RT - RT 05</title>
-<link rel="stylesheet" href="css/styles.css">
+<title>Tentang RT 05</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div id="mobileOverlay"></div>
-
-<header class="mobile-header">
-  <button id="mobileMenuBtn">☰</button>
-  <span>Tentang RT</span>
-  <button id="darkToggle">🌙</button>
-</header>
-
-<aside class="sidebar">
-  <div class="brand">
-    <img src="images/logo.png">
-    <h2>RT 05</h2>
-  </div>
-
-  <nav>
-    <a href="admin-dashboard.html">🏠 Dashboard</a>
-    <a href="pengumuman.html">📢 Pengumuman</a>
-    <a href="layanan-surat.html">📄 Layanan Surat</a>
-    <a href="piket.html">📅 Piket</a>
-    <a class="active" href="about.html">ℹ️ Tentang RT</a>
-    <a href="kontak.html">☎️ Kontak</a>
-  </nav>
-
-  <div class="sidebar-actions">
-    <button class="btn" id="sidebarDarkToggle">🌓 Dark Mode</button>
-    <button class="logout-btn" onclick="logout()">Logout</button>
-  </div>
-</aside>
+<?php include 'sidebar-template.html'; ?>
 
 <main class="content">
   <h1>Tentang RT 05</h1>
 
-  <div class="card">
-    <p>RT 05 merupakan wilayah kecil yang berkembang pesat dengan jumlah warga lebih dari 120 KK.</p>
-
-    <p>Fokus utama pengurus RT:</p>
-    <ul>
-      <li>Meningkatkan keamanan lingkungan</li>
-      <li>Digitalisasi layanan</li>
-      <li>Transparansi kegiatan</li>
-      <li>Gotong royong warga</li>
-    </ul>
-
-    <p>Website ini dibangun sebagai pusat informasi dan layanan digital bagi seluruh warga.</p>
+  <div class="info-box">
+    <p>RT 05 Bangkala adalah lingkungan dengan 120 KK yang aktif dalam kegiatan sosial, keamanan, dan kebersihan.</p>
   </div>
-
 </main>
 
 <script src="js/auth.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/redirect.js"></script>
-
 </body>
 </html>
