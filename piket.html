@@ -3,44 +3,41 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jadwal Piket</title>
+<title>Jadwal Piket - RT 05</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header>
-  <img src="images/logo.png" alt="Logo" style="width:70px;margin-bottom:8px;">
-  <h1>Jadwal Piket</h1>
-</header>
+<aside class="sidebar">
+  <div class="brand"><img src="images/logo.png"><h2>RT 05</h2></div>
+  <nav class="side-nav">
+    <a href="admin-dashboard.html">🏠 Dashboard</a>
+    <a href="pengumuman.html">📢 Pengumuman</a>
+    <a href="layanan-surat.html">📄 Layanan Surat</a>
+    <a class="active" href="piket.html">📅 Piket</a>
+    <a href="about.html">ℹ️ Tentang RT</a>
+    <a href="kontak.html">☎️ Kontak</a>
+  </nav>
+  <div class="sidebar-actions">
+    <button class="btn" data-toggle-theme>🌓 Dark Mode</button>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+</aside>
 
-<nav class="topnav">
-  <a href="admin-dashboard.html">Dashboard</a>
-  <a href="piket.html" class="active">Piket</a>
-  <a href="pengumuman.html">Pengumuman</a>
-  <a href="layanan-surat.html">Layanan Surat</a>
-  <a href="about.html">Tentang RT</a>
-  <a href="kontak.html">Kontak</a>
-</nav>
-
-<div class="container">
-  <h2>Minggu Ini</h2>
-  <ul id="piketList"></ul>
+<div class="mobile-top">
+  <button class="btn" data-mobile-menu>☰</button>
+  <div class="mobile-title">RT 05 - Piket</div>
+  <button class="btn" data-toggle-theme>🌓</button>
 </div>
+
+<main class="content">
+  <h1>Jadwal Piket</h1>
+  <div class="container">
+    <p>Jadwal piket warga akan ditampilkan di sini...</p>
+  </div>
+</main>
 
 <script src="js/auth.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/redirect.js"></script>
-<script>
-fetch('data/piket.json')
-.then(r=>r.json())
-.then(list=>{
-  const el=document.getElementById('piketList');
-  list.forEach(p=>{
-    const li=document.createElement('li');
-    li.textContent=`${p.hari} — ${p.petugas}`;
-    el.appendChild(li);
-  });
-})
-.catch(()=>{document.getElementById('piketList').innerHTML='<li>Tidak ada jadwal.</li>';});
-</script>
 </body>
 </html>
