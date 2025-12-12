@@ -7,7 +7,16 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header><h1>Jadwal Piket</h1></header>
+  <header>
+    <div class="banner">
+      <img src="images/logo.png" class="banner-logo" alt="Logo RT 05">
+      <div class="banner-text">
+        <h1>Jadwal Piket</h1>
+        <p>Info petugas mingguan</p>
+      </div>
+    </div>
+  </header>
+
   <nav class="topnav">
     <a href="admin-dashboard.html">Dashboard</a>
     <a href="piket.html" class="active">Piket</a>
@@ -22,7 +31,6 @@
     <ul id="piketList"></ul>
   </div>
 
-  <script src="js/redirect.js"></script>
   <script>
     fetch('data/piket.json').then(r=>r.json()).then(list=>{
       const el = document.getElementById('piketList');
@@ -31,7 +39,7 @@
         li.textContent = `${p.hari} — ${p.petugas}`;
         el.appendChild(li);
       });
-    }).catch(()=>{ document.getElementById('piketList').innerHTML='<li>Tidak ada jadwal.</li>';});
+    }).catch(()=>{document.getElementById('piketList').innerHTML='<li>Tidak ada jadwal.</li>';});
   </script>
 </body>
 </html>
