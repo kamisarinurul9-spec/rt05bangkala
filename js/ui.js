@@ -1,27 +1,23 @@
 // ui.js
-
-document.addEventListener("DOMContentLoaded", () => {
-  const toggleThemeBtns = document.querySelectorAll("[data-toggle-theme]");
-  const mobileMenuBtn = document.querySelector("[data-mobile-menu]");
+document.addEventListener("DOMContentLoaded", ()=>{
   const sidebar = document.querySelector(".sidebar");
+  const mobileBtn = document.querySelector("[data-mobile-menu]");
+  const themeBtns = document.querySelectorAll("[data-toggle-theme]");
 
-  // Dark mode toggle
-  toggleThemeBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
+  // Dark mode
+  if(localStorage.getItem("darkMode")==="on") document.body.classList.add("dark-mode");
+  themeBtns.forEach(btn=>{
+    btn.addEventListener("click", ()=>{
       document.body.classList.toggle("dark-mode");
-      localStorage.setItem("darkMode", document.body.classList.contains("dark-mode") ? "on" : "off");
+      localStorage.setItem("darkMode", document.body.classList.contains("dark-mode")?"on":"off");
     });
   });
 
-  // Load dark mode from localStorage
-  if (localStorage.getItem("darkMode") === "on") {
-    document.body.classList.add("dark-mode");
-  }
-
-  // Mobile menu toggle
-  if(mobileMenuBtn && sidebar) {
-    mobileMenuBtn.addEventListener("click", () => {
+  // Mobile menu
+  if(mobileBtn && sidebar){
+    mobileBtn.addEventListener("click", ()=>{
       sidebar.classList.toggle("show-mobile");
+      document.body.classList.toggle("sidebar-open");
     });
   }
 });
