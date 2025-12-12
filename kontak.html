@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="css/style.css">
 
 <style>
-  /* Hyperlink biru agar terlihat bisa diklik */
+  /* Hyperlink biru */
   .contact-section a {
     color: #007bff;
     font-weight: 600;
@@ -15,6 +15,65 @@
   .contact-section a:hover {
     opacity: 0.8;
     text-decoration: underline;
+  }
+
+  /* Card Kontak */
+  .contact-card {
+    background: var(--bg-card);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+  }
+
+  .contact-card img {
+    width: 85px;
+    height: 85px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #007bff;
+  }
+
+  .contact-card .info h3 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  .contact-card .info p {
+    margin: 3px 0;
+    font-size: 0.9rem;
+  }
+
+  /* Google Maps */
+  .map-container {
+    margin-top: 25px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  /* Floating WhatsApp */
+  .wa-floating {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    color: white;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+    z-index: 999;
+  }
+  .wa-floating:hover {
+    opacity: 0.85;
   }
 </style>
 
@@ -53,31 +112,45 @@
 
   <section class="contact-section">
 
+    <!-- CARD KETUA RT -->
+    <div class="contact-card">
+      <img src="https://scontent.fupg6-1.fna.fbcdn.net/v/t1.6435-9/199391621_474562130275735_2302191189078713925_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeE6yuqG4PR4QzG765fDsb8QeMXubIRZmhh4xe5shFmaGDBBx5pucSlJSfjpJzDobBk19HTqpUkS2t6ArPYPW92O&_nc_ohc=371p-NPwi5cQ7kNvwHMG3Tr&_nc_oc=AdmIPHv4YU20OVS-xNBRDnWvQcTJRrptQhAHArmWvL9VAEM00nj3iyiiHOprphdfX-8&_nc_zt=23&_nc_ht=scontent.fupg6-1.fna&_nc_gid=D8OYiK3UehEgSCxGq3_0UA&oh=00_AfnkgOyKztTgGyGUu5NW4tTDxeKMmnG8rHFdOCsecONsdw&oe=69638162" alt="Ketua RT">
+
+      <div class="info">
+        <h3>Ketua RT: Nasaruddin</h3>
+        <p>📞 0821-9165-2722</p>
+        <p><a href="https://wa.me/6282191652722" target="_blank">Chat via WhatsApp</a></p>
+      </div>
+    </div>
+
     <h2>Alamat</h2>
     <p>JL. Tamangapa Raya III. RT 05/ RW 01, Kelurahan Bangkala, Kecamatan Manggala, Kota Makassar, Sulawesi Selatan, Indonesia</p>
 
     <h2>Telepon / WA</h2>
     <p>📞 +62 821 9165 2722</p>
-    <p>💬 WhatsApp: 
-      <a href="https://wa.me/6282191652722" target="_blank">Chat Sekarang</a>
-    </p>
+    <p>💬 WhatsApp: <a href="https://wa.me/6282191652722" target="_blank">Chat Sekarang</a></p>
 
     <h2>Email</h2>
-    <p>
-      ✉️ 
-      <a href="mailto:rt05bangkala@gmail.com">
-        rt05bangkala@gmail.com
-      </a>
-    </p>
+    <p>✉️ <a href="mailto:rt05bangkala@gmail.com">rt05bangkala@gmail.com</a></p>
 
-    <h2>Kontak Penting Lainnya</h2>
-    <ul>
-      <li>Kepala RT: Nasaruddin</li>
-    </ul>
+    <h2>Lokasi di Google Maps</h2>
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps?q=RT%2005%20Bangkala%20Makassar&z=15&output=embed" 
+        width="100%" 
+        height="300" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </div>
 
   </section>
 
 </main>
+
+<!-- Floating WA -->
+<a class="wa-floating" href="https://wa.me/6282191652722" target="_blank">💬</a>
 
 <script src="js/auth.js"></script>
 <script src="js/ui.js"></script>
