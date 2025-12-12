@@ -1,66 +1,40 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dashboard Admin - RT 05</title>
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div id="mobileOverlay"></div>
-
-<header class="mobile-header">
-  <button id="mobileMenuBtn">☰</button>
-  <span>RT 05 - Admin</span>
-  <button id="darkToggle">🌙</button>
-</header>
-
-<aside class="sidebar">
-  <div class="brand">
-    <img src="images/logo.png">
-    <h2>RT 05</h2>
-  </div>
-
-  <nav>
-    <a class="active" href="admin-dashboard.html">🏠 Dashboard</a>
-    <a href="pengumuman.html">📢 Pengumuman</a>
-    <a href="layanan-surat.html">📄 Layanan Surat</a>
-    <a href="piket.html">📅 Piket</a>
-    <a href="about.html">ℹ️ Tentang RT</a>
-    <a href="kontak.html">☎️ Kontak</a>
-  </nav>
-
-  <div class="sidebar-actions">
-    <button class="btn" id="sidebarDarkToggle">🌓 Dark Mode</button>
-    <button class="logout-btn" onclick="logout()">Logout</button>
-  </div>
-</aside>
+<!-- SIDEBAR + MOBILE HEADER -->
+<?php include 'sidebar-admin.html'; ?>
 
 <main class="content">
   <h1>Dashboard Admin</h1>
 
   <section class="cards">
-    <div class="card">
-      <h3>Total Warga Terdaftar</h3>
-      <p>122 Warga</p>
-    </div>
-    <div class="card">
-      <h3>Pengumuman Aktif</h3>
-      <p>3 Pengumuman</p>
-    </div>
-    <div class="card">
-      <h3>Permintaan Surat</h3>
-      <p>5 Surat menunggu</p>
-    </div>
-  </section>
+    <a href="pengumuman.html" class="card">
+      <h3>Kelola Pengumuman</h3>
+      <p>Buat & edit pengumuman</p>
+    </a>
 
+    <a href="layanan-surat.html" class="card">
+      <h3>Surat Warga</h3>
+      <p>Kelola permintaan surat</p>
+    </a>
+
+    <a href="piket.html" class="card">
+      <h3>Jadwal Piket</h3>
+      <p>Atur jadwal piket</p>
+    </a>
+  </section>
 </main>
 
 <script src="js/auth.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/redirect.js"></script>
 <script>checkAuth("admin");</script>
-
 </body>
 </html>
