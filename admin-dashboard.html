@@ -1,56 +1,45 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#0d47a1">
   <title>Admin Dashboard - RT 05</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar" aria-label="Sidebar">
+  <aside class="sidebar">
     <div class="brand">
-      <img src="images/logo.png" alt="Logo">
+      <img src="images/logo.png" alt="Logo RT 05">
       <h2>RT 05</h2>
     </div>
-
     <nav class="side-nav">
-      <a class="active" href="admin-dashboard.html"><span class="icon">🏠</span><span class="nav-label">Dashboard</span></a>
-      <a href="pengumuman.html"><span class="icon">📢</span><span class="nav-label">Pengumuman</span></a>
-      <a href="layanan-surat.html"><span class="icon">📄</span><span class="nav-label">Layanan Surat</span></a>
-      <a href="piket.html"><span class="icon">📅</span><span class="nav-label">Piket</span></a>
-      <a href="about.html"><span class="icon">ℹ️</span><span class="nav-label">Tentang RT</span></a>
-      <a href="kontak.html"><span class="icon">☎️</span><span class="nav-label">Kontak</span></a>
+      <a class="active" href="admin-dashboard.html">🏠 Dashboard</a>
+      <a href="pengumuman.html">📢 Pengumuman</a>
+      <a href="layanan-surat.html">📄 Layanan Surat</a>
+      <a href="piket.html">📅 Piket</a>
+      <a href="about.html">ℹ️ Tentang RT</a>
+      <a href="kontak.html">☎️ Kontak</a>
     </nav>
-
     <div class="sidebar-actions">
-      <button class="btn" data-toggle-sidebar title="Toggle sidebar">⬅️</button>
-      <button class="btn" data-toggle-theme title="Toggle theme">🌓</button>
+      <button class="btn" data-toggle-theme>🌓 Dark Mode</button>
       <button class="logout-btn" onclick="logout()">Logout</button>
     </div>
   </aside>
 
-  <!-- MOBILE TOP -->
   <div class="mobile-top">
     <button class="mobile-menu-btn" data-mobile-menu>☰</button>
     <div class="mobile-title">RT 05 - Admin</div>
     <button class="btn" data-toggle-theme>🌓</button>
   </div>
 
-  <main class="content app-safe">
-    <!-- Banner -->
-    <div class="banner" style="margin-bottom: 20px;">
+  <main class="content">
+    <div class="banner" style="margin-bottom:20px;">
       <img src="images/logo.png" alt="Logo RT 05" class="banner-logo">
       <div class="banner-text">
         <h1>Dashboard Admin</h1>
-        <p>Kelola RT 05 dengan mudah</p>
+        <p>Selamat datang di portal RT 05</p>
       </div>
-    </div>
-
-    <div class="header-bar">
-      <div id="welcome" class="muted">—</div>
     </div>
 
     <section class="cards">
@@ -62,10 +51,9 @@
 
   <script src="js/redirect.js"></script>
   <script src="js/auth.js"></script>
-  <script src="js/ui.js"></script>
   <script>
     const user = JSON.parse(localStorage.getItem('rtUser'));
-    document.getElementById('welcome').innerText = user ? `Selamat datang, ${user.username}` : '';
+    if(user) console.log(`Selamat datang, ${user.username}`);
     fetch('data/pengumuman.json').then(r=>r.json()).then(arr=>{
       document.getElementById('count-pengumuman').innerText = arr.length;
     }).catch(()=>{});
