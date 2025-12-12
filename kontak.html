@@ -7,8 +7,13 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
 <aside class="sidebar">
-  <div class="brand"><img src="images/logo.png"><h2>RT 05</h2></div>
+  <div class="brand">
+    <img src="images/logo.png" alt="Logo">
+    <h2>RT 05</h2>
+  </div>
+
   <nav class="side-nav">
     <a href="admin-dashboard.html">🏠 Dashboard</a>
     <a href="pengumuman.html">📢 Pengumuman</a>
@@ -17,6 +22,7 @@
     <a href="about.html">ℹ️ Tentang RT</a>
     <a class="active" href="kontak.html">☎️ Kontak</a>
   </nav>
+
   <div class="sidebar-actions">
     <button class="btn" data-toggle-theme>🌓 Dark Mode</button>
     <button class="logout-btn" onclick="logout()">Logout</button>
@@ -31,13 +37,31 @@
 
 <main class="content">
   <h1>Kontak RT 05</h1>
-  <div class="container">
-    <p>Alamat RT, nomor telepon, email, WA, dan kontak penting lainnya...</p>
-  </div>
+
+  <section class="contact-section">
+
+    <h2>Alamat</h2>
+    <p>JL. Tamangapa Raya III. RT 05/ RW 01, Kelurahan Bangkala, Kecamatan Manggala, Kota Makassar, Sulawesi Selatan, Indonesia</p>
+
+    <h2>Telepon / WA</h2>
+    <p>📞 +62 821 9165 2722</p>
+    <p>💬 WhatsApp: <a href="https://wa.me/6282191652722" target="_blank">Chat Sekarang</a></p>
+
+    <h2>Email</h2>
+    <p>✉️ <a href="mailto:rt05bangkala@gmail.com.com">rt05bangkala@gmail.com</a></p>
+
+    <h2>Kontak Penting Lainnya</h2>
+    <ul>
+      <li>Kepala RT: Nasaruddin</li>
+    </ul>
+
+  </section>
+
 </main>
 
 <script src="js/auth.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/redirect.js"></script>
+
 </body>
 </html>
