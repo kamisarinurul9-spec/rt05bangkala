@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - Aduan Warga</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="brand"><img src="images/logo.png"><h2>RT 05</h2></div>
+
+  <nav class="side-nav">
+    <a href="admin-dashboard.html">🏠 Dashboard</a>
+    <a href="pengumuman.html">📢 Pengumuman</a>
+    <a href="layanan-surat.html">📄 Layanan Surat</a>
+    <a href="piket.html">📅 Piket</a>
+    <a href="about.html">ℹ️ Tentang RT</a>
+    <a href="kontak.html">☎️ Kontak</a>
+    <a class="active" href="admin-aduan.html">📝 Aduan Warga</a>
+  </nav>
+
+  <div class="sidebar-actions">
+    <button class="btn" data-toggle-theme>🌓 Dark Mode</button>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+</aside>
+
+<main class="content">
+<h1>Daftar Aduan Warga</h1>
+
+<div class="container" id="listAduan">
+  <p>Memuat aduan...</p>
+</div>
+
+</main>
+
+<script>
+// Ambil data aduan dari LocalStorage
+const data = JSON.parse(localStorage.getItem("aduan")) || [];
+const container = document.getElementById("listAduan");
+
+if (data.length === 0) {
+    container.innerHTML = "<p>Tidak ada aduan.</p>";
+} else {
+    container.innerHTML = data.map(a => `
+        <div class="card" style="margin-bottom:10px">
+            <h3>${a.judul}</h3>
+            <p><b>Nama:</b> ${a.nama}</p>
+            <p>${a.isi}</p>
+            <p><small><i>${a.tanggal}</i></small></p>
+        </div>
+    `).join("");
+}
+</script>
+
+</body>
+</html>
