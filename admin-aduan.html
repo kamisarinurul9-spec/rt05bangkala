@@ -38,21 +38,44 @@
 
 <script>
 // Ambil data aduan dari LocalStorage
-const data = JSON.parse(localStorage.getItem("aduan")) || [];
-const container = document.getElementById("listAduan");
+function loadAduan() {
+    const data = JSON.parse(localStorage.getItem("aduan")) || [];
+    const container = document.getElementById("listAduan");
 
-if (data.length === 0) {
-    container.innerHTML = "<p>Tidak ada aduan.</p>";
-} else {
-    container.innerHTML = data.map(a => `
+    if (data.length === 0) {
+        container.innerHTML = "<p>Tidak ada aduan.</p>";
+        return;
+    }
+
+    container.innerHTML = data.map((a, index) => `
         <div class="card" style="margin-bottom:10px">
             <h3>${a.judul}</h3>
             <p><b>Nama:</b> ${a.nama}</p>
             <p>${a.isi}</p>
             <p><small><i>${a.tanggal}</i></small></p>
+
+            <button onclick="hapusAduan(${index})" class="btn" 
+              style="background:#d9534f;color:white;margin-top:10px;">
+              Hapus
+            </button>
         </div>
     `).join("");
 }
+
+// Fungsi hapus aduan
+function hapusAduan(i) {
+    const data = JSON.parse(localStorage.getItem("aduan")) || [];
+
+    if (!confirm("Yakin ingin menghapus aduan ini?")) return;
+
+    data.splice(i, 1); // hapus aduan berdasarkan index
+    localStorage.setItem("aduan", JSON.stringify(data));
+
+    loadAduan(); // refresh daftar
+}
+
+// Load pertama kali
+loadAduan();
 </script>
 
 </body>
