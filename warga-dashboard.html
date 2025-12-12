@@ -1,33 +1,40 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard Warga - RT 05</title>
+<title>Warga Dashboard - RT 05</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<aside class="sidebar">
+  <div class="brand"><img src="images/logo.png"><h2>RT 05</h2></div>
+  <nav class="side-nav">
+    <a class="active" href="warga-dashboard.html">🏠 Dashboard</a>
+    <a href="pengumuman.html">📢 Pengumuman</a>
+    <a href="layanan-surat.html">📄 Layanan Surat</a>
+    <a href="piket.html">📅 Piket</a>
+    <a href="about.html">ℹ️ Tentang RT</a>
+    <a href="kontak.html">☎️ Kontak</a>
+  </nav>
+  <div class="sidebar-actions">
+    <button class="btn" data-toggle-theme>🌓 Dark Mode</button>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+</aside>
 
-<?php include 'sidebar-warga.html'; ?>
+<div class="mobile-top">
+  <button class="btn" data-mobile-menu>☰</button>
+  <div class="mobile-title">RT 05 - Warga</div>
+  <button class="btn" data-toggle-theme>🌓</button>
+</div>
 
 <main class="content">
   <h1>Dashboard Warga</h1>
-
   <section class="cards">
-    <a href="pengumuman.html" class="card">
-      <h3>Pengumuman</h3>
-      <p>Lihat informasi terbaru</p>
-    </a>
-
-    <a href="layanan-surat.html" class="card">
-      <h3>Layanan Surat</h3>
-      <p>Ajukan surat kendudukuan</p>
-    </a>
-
-    <a href="piket.html" class="card">
-      <h3>Jadwal Piket</h3>
-      <p>Cek jadwal piket harian</p>
-    </a>
+    <div class="card"><h3>Pengumuman Terbaru</h3><p>Lihat pengumuman</p></div>
+    <div class="card"><h3>Layanan Surat</h3><p>Ajukan surat</p></div>
+    <div class="card"><h3>Jadwal Piket</h3><p>Cek jadwal</p></div>
   </section>
 </main>
 
