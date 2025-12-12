@@ -1,54 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-
-body {
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-  background: #eef2ff;
-}
-
-header {
-  background: #0d47a1;
-  padding: 15px;
-  text-align: center;
-  color: white;
-}
-
-nav {
-  background: #1976d2;
-  padding: 10px;
-  text-align: center;
-}
-
-nav a {
-  color: white;
-  margin: 0 10px;
-  padding: 6px 10px;
-  border-radius: 6px;
-}
-
-nav a:hover,
-nav a.active {
-  background: rgba(255,255,255,0.25);
-}
-
-.container {
-  max-width: 900px;
-  background: white;
-  padding: 25px;
-  margin: 25px auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-h2 {
-  color: #0d47a1;
-  margin-top: 0;
-}
-
-footer {
-  margin-top: 40px;
-  background: #0d47a1;
-  color: white;
-  padding: 15px;
-  text-align: center;
-}
+*{box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;margin:0;background:#eef2ff;color:#111}
+header{background:#0d47a1;color:#fff;padding:18px;text-align:center}
+.topnav{background:#1976d2;padding:8px;text-align:center}
+.topnav a{color:#fff;margin:0 8px;padding:6px 10px;border-radius:6px;text-decoration:none;display:inline-block}
+.topnav a.active,.topnav a:hover{background:rgba(255,255,255,0.18)}
+.container{max-width:900px;background:#fff;padding:22px;border-radius:12px;margin:20px auto;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
+h2{color:#0d47a1;margin-top:0}
+footer{background:#0d47a1;color:#fff;text-align:center;padding:14px;margin-top:28px}
+ul{padding-left:18px}
+@media(max-width:600px){.container{margin:12px;padding:16px}}
