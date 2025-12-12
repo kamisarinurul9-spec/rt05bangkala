@@ -4,55 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jadwal Piket - RT 05</title>
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div id="mobileOverlay"></div>
-
-<header class="mobile-header">
-  <button id="mobileMenuBtn">☰</button>
-  <span>Jadwal Piket</span>
-  <button id="darkToggle">🌙</button>
-</header>
-
-<aside class="sidebar">
-  <div class="brand">
-    <img src="images/logo.png">
-    <h2>RT 05</h2>
-  </div>
-
-  <nav>
-    <a href="admin-dashboard.html">🏠 Dashboard</a>
-    <a href="pengumuman.html">📢 Pengumuman</a>
-    <a href="layaan-surat.html">📄 Layanan Surat</a>
-    <a class="active" href="piket.html">📅 Piket</a>
-    <a href="about.html">ℹ️ Tentang RT</a>
-    <a href="kontak.html">☎️ Kontak</a>
-  </nav>
-
-  <div class="sidebar-actions">
-    <button class="btn" id="sidebarDarkToggle">🌓 Dark Mode</button>
-    <button class="logout-btn" onclick="logout()">Logout</button>
-  </div>
-</aside>
+<?php include 'sidebar-template.html'; ?>
 
 <main class="content">
-  <h1>Jadwal Piket Mingguan</h1>
+  <h1>Jadwal Piket</h1>
 
-  <section class="cards">
-    <div class="card"><h3>Senin</h3><p>Pak Arif - Bu Rani</p></div>
-    <div class="card"><h3>Selasa</h3><p>Pak Dedi - Pak Arman</p></div>
-    <div class="card"><h3>Rabu</h3><p>Bu Ita - Pak Fajar</p></div>
-    <div class="card"><h3>Kamis</h3><p>Bu Nisa - Bu Rina</p></div>
-    <div class="card"><h3>Jumat</h3><p>Seluruh Warga Blok A</p></div>
-  </section>
-
+  <div class="info-box">
+    <p>Senin — Andi, Rian</p>
+    <p>Selasa — Budi, Joko</p>
+    <p>Rabu — Agung, Rizky</p>
+  </div>
 </main>
 
 <script src="js/auth.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/redirect.js"></script>
-
 </body>
 </html>
