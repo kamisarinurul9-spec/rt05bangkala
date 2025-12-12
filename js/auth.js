@@ -1,37 +1,89 @@
-// auth.js
-const users = [
-  { username:"admin", password:"bangkalart05", role:"admin" },
-  { username:"accunk", password:"sampoerna16", role:"admin" },  
-  { username:"bongkar", password:"Bismillah123", role:"admin" },
-  { username:"salman", password:"salman123", role:"warga" },
-  { username:"warga", password:"warga123", role:"warga" }
+// js/auth.js
+// Simple client-side auth (demo). Stores current user in localStorage under key "user".
+// Provides: login(event), checkAuth(role), logout()
+
+const AUTH_USERS = [
+  { username: "admin", password: "admin123", role: "admin" },
+  { username: "warga", password: "warga123", role: "warga" }
 ];
 
-function login(event){
-  event.preventDefault();
-  const username = document.getElementById("username").value.trim();
-  const password = document.getElementById("password").value.trim();
-  const user = users.find(u => u.username===username && u.password===password);
-  if(!user){ alert("Username atau password salah!"); return; }
-  localStorage.setItem("user", JSON.stringify(user));
-  if(user.role==="admin") window.location.href="admin-dashboard.html";
-  else window.location.href="warga-dashboard.html";
-}
+(function globalAuthScope(){
+  // perform login from a form: use onsubmit="login(event)"
+  function login(event) {
+    if (event && event.preventDefault) event.preventDefault();
+    const uEl = document.getElementById("username");
+    const pEl = document.getElementById("password");
+    if (!uEl || !pEl) {
+      alert("Form login tidak ditemukan.");
+      return;
+    }
+    const username = (uEl.value || "").trim();
+    const password = (pEl.value || "").trim();
+    if (!username || !password) {
+      alert("Masukkan username & password.");
+      return;
+    }
 
-function checkAuth(roleRequired){
-  const user = JSON.parse(localStorage.getItem("user"));
-  if(!user || (roleRequired && user.role!==roleRequired)){
-    window.location.href="login.html";
+    const found = AUTH_USERS.find(x => x.username === username && x.password === password);
+    if (!found) {
+      alert("Username atau password salah!");
+      return;
+    }
+
+    // simpan session
+    localStorage.setItem("user", JSON.stringify(found));
+
+    // redirect sesuai role
+    if (found.role === "admin") window.location.href = "admin-dashboard.html";
+    else window.location.href = "warga-dashboard.html";
   }
-}
 
-function logout(){
-  localStorage.removeItem("user");
-  window.location.href="login.html";
-}
+  // cek akses halaman; jika roleRequired diberikan, batasi akses
+  function checkAuth(roleRequired) {
+    const raw = localStorage.getItem("user");
+    if (!raw) {
+      // not logged in
+      window.location.href = "login.html";
+      return;
+    }
+    try {
+      const u = JSON.parse(raw);
+      if (roleRequired && u.role !== roleRequired) {
+        alert("Anda tidak memiliki akses ke halaman ini.");
+        window.location.href = "login.html";
+      }
+    } catch (e) {
+      localStorage.removeItem("user");
+      window.location.href = "login.html";
+    }
+  }
 
-// auto redirect if already login
-const user = JSON.parse(localStorage.getItem("user"));
-if(user && window.location.pathname.includes("login.html")){
-  window.location.href = user.role==="admin" ? "admin-dashboard.html" : "warga-dashboard.html";
-}
+  function logout() {
+    localStorage.removeItem("user");
+    // also remove any UI-only flags (optional)
+    // localStorage.removeItem('rt05_new_aduan');
+    window.location.href = "login.html";
+  }
+
+  // auto-redirect: jika user buka login.html tetapi sudah login, redirect ke dashboard sesuai role
+  document.addEventListener("DOMContentLoaded", () => {
+    try {
+      const uRaw = localStorage.getItem("user");
+      const path = window.location.pathname.split("/").pop() || "";
+      if (uRaw) {
+        const u = JSON.parse(uRaw);
+        if (path === "login.html" || path === "index.html" || path === "") {
+          if (u.role === "admin") window.location.href = "admin-dashboard.html";
+          else window.location.href = "warga-dashboard.html";
+        }
+      }
+    } catch (e) {
+      // ignore
+    }
+  });
+
+  // expose to global scope so HTML can call them
+  window.login = login;
+  window.checkAuth = checkAuth;
+  window.logout = logout;
+})();
