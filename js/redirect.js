@@ -1,5 +1,6 @@
-const loggedUser = JSON.parse(localStorage.getItem("user"));
+// Cek apakah sudah login
+const isLoggedIn = localStorage.getItem("rt05_logged_in");
 
-if (!loggedUser) {
-  window.location.href = "login.html";
+if (isLoggedIn !== "true") {
+    window.location.href = "login.html";
 }
