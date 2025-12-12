@@ -1,27 +1,56 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>Dashboard Warga</title>
-<link rel="stylesheet" href="css/dashboard.css">
+    <meta charset="UTF-8">
+    <title>Dashboard Warga - RT 05 Bangkala</title>
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
-
 <body>
-<h1>Dashboard Warga RT 05</h1>
-<p>Selamat datang, <span id="username"></span>.</p>
 
-<button onclick="logout()">Logout</button>
+<div class="sidebar">
+    <div class="brand">
+        <img src="images/logo.png" alt="Logo">
+        <h2>RT 05</h2>
+    </div>
+
+    <a href="warga-dashboard.html" class="active">Dashboard</a>
+    <a href="pengumuman.html">Pengumuman</a>
+    <a href="layanan-surat.html">Layanan Surat</a>
+    <a href="piket.html">Jadwal Piket</a>
+    <a href="about.html">Tentang RT</a>
+    <a href="kontak.html">Kontak</a>
+
+    <button onclick="logout()" class="logout-btn">Logout</button>
+</div>
+
+<div class="content">
+    <header>
+        <h1>Dashboard Warga RT 05</h1>
+        <p id="welcomeText"></p>
+    </header>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Pengumuman Baru</h3>
+            <p>3</p>
+        </div>
+        <div class="card">
+            <h3>Layanan Surat Anda</h3>
+            <p>2</p>
+        </div>
+        <div class="card">
+            <h3>Jadwal Piket Minggu Ini</h3>
+            <p>3 Orang</p>
+        </div>
+    </div>
+</div>
 
 <script src="js/redirect.js"></script>
+<script src="js/auth.js"></script>
 
 <script>
-document.getElementById("username").innerText =
-  localStorage.getItem("rt05_user");
-
-function logout() {
-    localStorage.clear();
-    window.location.href = "login.html";
-}
+    const user = JSON.parse(localStorage.getItem("user"));
+    document.getElementById("welcomeText").textContent = "Selamat datang, " + user.username;
 </script>
 
 </body>
