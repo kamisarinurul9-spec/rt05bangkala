@@ -2,48 +2,41 @@
 <html lang="id">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Tentang RT 05</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- SIDEBAR -->
-  <aside class="sidebar" aria-label="Sidebar">
-    <div class="brand">
-      <img src="images/logo.png" alt="Logo">
-      <h2>RT 05</h2>
+
+  <!-- Banner -->
+  <div class="banner">
+    <img src="images/logo.png" alt="Logo RT 05" class="banner-logo">
+    <div class="banner-text">
+      <h1>RT 05 Bangkala</h1>
+      <p>Lingkungan Aman & Rukun</p>
     </div>
-
-    <nav class="side-nav">
-      <a href="admin-dashboard.html"><span class="icon">🏠</span><span class="nav-label">Dashboard</span></a>
-      <a href="pengumuman.html"><span class="icon">📢</span><span class="nav-label">Pengumuman</span></a>
-      <a href="layanan-surat.html"><span class="icon">📄</span><span class="nav-label">Layanan Surat</span></a>
-      <a href="piket.html"><span class="icon">📅</span><span class="nav-label">Piket</span></a>
-      <a href="about.html" class="active"><span class="icon">ℹ️</span><span class="nav-label">Tentang RT</span></a>
-      <a href="kontak.html"><span class="icon">☎️</span><span class="nav-label">Kontak</span></a>
-    </nav>
-
-    <div class="sidebar-actions">
-      <button class="btn" data-toggle-sidebar>⬅️</button>
-      <button class="btn" data-toggle-theme>🌓</button>
-      <button class="logout-btn" onclick="logout()">Logout</button>
-    </div>
-  </aside>
-
-  <!-- MOBILE TOP -->
-  <div class="mobile-top">
-    <button class="mobile-menu-btn" data-mobile-menu>☰</button>
-    <div class="mobile-title">Tentang RT</div>
-    <button class="btn" data-toggle-theme>🌓</button>
   </div>
 
-  <!-- CONTENT -->
-  <main class="content app-safe">
-    <div class="header-bar">
-      <h1>Tentang RT 05 Bangkala</h1>
-    </div>
+  <nav class="topnav">
+    <a href="admin-dashboard.html">Dashboard</a>
+    <a href="about.html" class="active">Tentang RT</a>
+    <a href="pengumuman.html">Pengumuman</a>
+    <a href="layanan-surat.html">Layanan Surat</a>
+    <a href="piket.html">Piket</a>
+    <a href="kontak.html">Kontak</a>
+  </nav>
 
-    <section class="cards">
-      <div class="card">
-        <h3>Profil</h3>
-        <p>RT 05 Bangkala — visi: lingkungan aman, rukun, modern.</p>
+  <div class="container">
+    <h2>Profil RT 05</h2>
+    <p>RT 05 Bangkala — visi: lingkungan aman, rukun, modern.</p>
+    <h3>Pengurus</h3>
+    <ul>
+      <li>Ketua: Nasaruddin</li>
+      <li>Sekretaris: Nur Aisyah</li>
+      <li>Bendahara: Rina Amelia</li>
+    </ul>
+  </div>
+
+  <script src="js/redirect.js"></script>
+</body>
+</html>
