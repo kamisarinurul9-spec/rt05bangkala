@@ -1,21 +1,38 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pengumuman - RT 05</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<aside class="sidebar">
+  <div class="brand"><img src="images/logo.png"><h2>RT 05</h2></div>
+  <nav class="side-nav">
+    <a href="admin-dashboard.html">🏠 Dashboard</a>
+    <a class="active" href="pengumuman.html">📢 Pengumuman</a>
+    <a href="layanan-surat.html">📄 Layanan Surat</a>
+    <a href="piket.html">📅 Piket</a>
+    <a href="about.html">ℹ️ Tentang RT</a>
+    <a href="kontak.html">☎️ Kontak</a>
+  </nav>
+  <div class="sidebar-actions">
+    <button class="btn" data-toggle-theme>🌓 Dark Mode</button>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+</aside>
 
-<?php include 'sidebar-template.html'; ?>
+<div class="mobile-top">
+  <button class="btn" data-mobile-menu>☰</button>
+  <div class="mobile-title">RT 05 - Pengumuman</div>
+  <button class="btn" data-toggle-theme>🌓</button>
+</div>
 
 <main class="content">
-  <h1>Pengumuman</h1>
-
-  <div class="info-box">
-    <h3>📢 Pengumuman Terbaru</h3>
-    <p>Belum ada pengumuman.</p>
+  <h1>Pengumuman RT</h1>
+  <div class="container">
+    <p>Isi pengumuman terbaru akan tampil di sini...</p>
   </div>
 </main>
 
