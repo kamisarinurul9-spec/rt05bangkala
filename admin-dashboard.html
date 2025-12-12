@@ -17,12 +17,12 @@
 </style>
 </head>
 <body>
+
 <aside class="sidebar">
   <div class="brand">
-      <img src="images/logo.png">
+      <img src="images/logo.png" alt="Logo">
       <h2>RT 05</h2>
 
-      <!-- Lokasi yang ditambahkan -->
       <div class="location">
         Kel. Bangkala, Kec. Manggala<br>
         Kota Makassar
@@ -52,10 +52,39 @@
 
 <main class="content">
   <h1>Dashboard Admin</h1>
+
   <section class="cards">
-    <div class="card"><h3>Pengumuman</h3><p>Kelola pengumuman RT</p></div>
-    <div class="card"><h3>Layanan Surat</h3><p>Proses permintaan surat</p></div>
-    <div class="card"><h3>Jadwal Piket</h3><p>Atur jadwal piket</p></div>
+
+    <!-- CARD ADMIN - PENGUMUMAN -->
+    <a href="pengumuman.html" class="card card-link">
+      <h3>Kelola Pengumuman</h3>
+      <p>Tambah, hapus, dan edit pengumuman RT.</p>
+    </a>
+
+    <!-- CARD ADMIN - LAYANAN SURAT -->
+    <a href="layanan-surat.html" class="card card-link">
+      <h3>Layanan Surat</h3>
+      <p>Proses pengajuan surat dari warga.</p>
+    </a>
+
+    <!-- CARD ADMIN - JADWAL PIKET -->
+    <a href="piket.html" class="card card-link">
+      <h3>Kelola Jadwal Piket</h3>
+      <p>Atur dan update jadwal piket RT.</p>
+    </a>
+
+    <!-- CARD ADMIN - TENTANG RT -->
+    <a href="about.html" class="card card-link">
+      <h3>Tentang RT</h3>
+      <p>Data struktur organisasi dan informasi RT.</p>
+    </a>
+
+    <!-- CARD ADMIN - KONTAK -->
+    <a href="kontak.html" class="card card-link">
+      <h3>Kontak RT</h3>
+      <p>Informasi kontak pengurus RT.</p>
+    </a>
+
   </section>
 </main>
 
@@ -63,5 +92,6 @@
 <script src="js/ui.js"></script>
 <script src="js/redirect.js"></script>
 <script>checkAuth("admin");</script>
+
 </body>
 </html>
