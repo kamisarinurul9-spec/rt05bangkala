@@ -1,45 +1,46 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Jadwal Piket</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jadwal Piket</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <div class="banner">
-      <img src="images/logo.png" class="banner-logo" alt="Logo RT 05">
-      <div class="banner-text">
-        <h1>Jadwal Piket</h1>
-        <p>Info petugas mingguan</p>
-      </div>
-    </div>
-  </header>
+<header>
+  <img src="images/logo.png" alt="Logo" style="width:70px;margin-bottom:8px;">
+  <h1>Jadwal Piket</h1>
+</header>
 
-  <nav class="topnav">
-    <a href="admin-dashboard.html">Dashboard</a>
-    <a href="piket.html" class="active">Piket</a>
-    <a href="pengumuman.html">Pengumuman</a>
-    <a href="layanan-surat.html">Layanan Surat</a>
-    <a href="about.html">Tentang RT</a>
-    <a href="kontak.html">Kontak</a>
-  </nav>
+<nav class="topnav">
+  <a href="admin-dashboard.html">Dashboard</a>
+  <a href="piket.html" class="active">Piket</a>
+  <a href="pengumuman.html">Pengumuman</a>
+  <a href="layanan-surat.html">Layanan Surat</a>
+  <a href="about.html">Tentang RT</a>
+  <a href="kontak.html">Kontak</a>
+</nav>
 
-  <div class="container">
-    <h2>Minggu Ini</h2>
-    <ul id="piketList"></ul>
-  </div>
+<div class="container">
+  <h2>Minggu Ini</h2>
+  <ul id="piketList"></ul>
+</div>
 
-  <script>
-    fetch('data/piket.json').then(r=>r.json()).then(list=>{
-      const el = document.getElementById('piketList');
-      list.forEach(p=>{
-        const li = document.createElement('li');
-        li.textContent = `${p.hari} — ${p.petugas}`;
-        el.appendChild(li);
-      });
-    }).catch(()=>{document.getElementById('piketList').innerHTML='<li>Tidak ada jadwal.</li>';});
-  </script>
+<script src="js/auth.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/redirect.js"></script>
+<script>
+fetch('data/piket.json')
+.then(r=>r.json())
+.then(list=>{
+  const el=document.getElementById('piketList');
+  list.forEach(p=>{
+    const li=document.createElement('li');
+    li.textContent=`${p.hari} — ${p.petugas}`;
+    el.appendChild(li);
+  });
+})
+.catch(()=>{document.getElementById('piketList').innerHTML='<li>Tidak ada jadwal.</li>';});
+</script>
 </body>
 </html>
