@@ -7,30 +7,34 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header>
-  <img src="images/logo.png" alt="Logo" style="width:70px;margin-bottom:8px;">
-  <h1>Tentang RT 05 Kelurahan Bangkala</h1>
-</header>
+<aside class="sidebar">
+  <div class="brand"><img src="images/logo.png"><h2>RT 05</h2></div>
+  <nav class="side-nav">
+    <a href="admin-dashboard.html">🏠 Dashboard</a>
+    <a href="pengumuman.html">📢 Pengumuman</a>
+    <a href="layanan-surat.html">📄 Layanan Surat</a>
+    <a href="piket.html">📅 Piket</a>
+    <a class="active" href="about.html">ℹ️ Tentang RT</a>
+    <a href="kontak.html">☎️ Kontak</a>
+  </nav>
+  <div class="sidebar-actions">
+    <button class="btn" data-toggle-theme>🌓 Dark Mode</button>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+</aside>
 
-<nav class="topnav">
-  <a href="admin-dashboard.html">Dashboard</a>
-  <a href="about.html" class="active">Tentang RT</a>
-  <a href="pengumuman.html">Pengumuman</a>
-  <a href="layanan-surat.html">Layanan Surat</a>
-  <a href="piket.html">Piket</a>
-  <a href="kontak.html">Kontak</a>
-</nav>
-
-<div class="container">
-  <h2>Profil</h2>
-  <p>RT 05 Bangkala — visi: lingkungan aman, rukun, modern.</p>
-  <h3>Pengurus</h3>
-  <ul>
-    <li>Ketua: Nasaruddin</li>
-    <li>Sekretaris: Nur Aisyah</li>
-    <li>Bendahara: Rina Amelia</li>
-  </ul>
+<div class="mobile-top">
+  <button class="btn" data-mobile-menu>☰</button>
+  <div class="mobile-title">RT 05 - Tentang RT</div>
+  <button class="btn" data-toggle-theme>🌓</button>
 </div>
+
+<main class="content">
+  <h1>Tentang RT 05</h1>
+  <div class="container">
+    <p>Deskripsi RT 05, sejarah, visi & misi, struktur organisasi...</p>
+  </div>
+</main>
 
 <script src="js/auth.js"></script>
 <script src="js/ui.js"></script>
