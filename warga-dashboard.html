@@ -1,57 +1,53 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Dashboard Warga - RT 05 Bangkala</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+  <meta charset="UTF-8" />
+  <title>Dashboard Warga</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <script src="js/redirect.js"></script>
 </head>
 <body>
 
 <div class="sidebar">
-    <div class="brand">
-        <img src="images/logo.png" alt="Logo">
-        <h2>RT 05</h2>
-    </div>
+  <div class="brand">
+    <img src="images/logo.png" alt="Logo">
+    <h3>Warga RT 05</h3>
+  </div>
 
-    <a href="warga-dashboard.html" class="active">Dashboard</a>
-    <a href="pengumuman.html">Pengumuman</a>
-    <a href="layanan-surat.html">Layanan Surat</a>
-    <a href="piket.html">Jadwal Piket</a>
-    <a href="about.html">Tentang RT</a>
-    <a href="kontak.html">Kontak</a>
+  <a href="warga-dashboard.html" class="active">Dashboard</a>
+  <a href="pengumuman.html">Pengumuman</a>
+  <a href="layanan-surat.html">Layanan Surat</a>
+  <a href="piket.html">Jadwal Piket</a>
+  <a href="about.html">Tentang RT</a>
+  <a href="kontak.html">Kontak</a>
 
-    <button onclick="logout()" class="logout-btn">Logout</button>
+  <button class="logout-btn" onclick="logout()">Logout</button>
 </div>
 
 <div class="content">
-    <header>
-        <h1>Dashboard Warga RT 05</h1>
-        <p id="welcomeText"></p>
-    </header>
+  <header>
+    <h1>Selamat Datang, Warga!</h1>
+  </header>
 
-    <div class="cards">
-        <div class="card">
-            <h3>Pengumuman Baru</h3>
-            <p>3</p>
-        </div>
-        <div class="card">
-            <h3>Layanan Surat Anda</h3>
-            <p>2</p>
-        </div>
-        <div class="card">
-            <h3>Jadwal Piket Minggu Ini</h3>
-            <p>3 Orang</p>
-        </div>
+  <div class="cards">
+    <div class="card">
+      <h3>Pengumuman Terbaru</h3>
+      <p>Lihat pengumuman terbaru</p>
     </div>
+
+    <div class="card">
+      <h3>Layanan Surat</h3>
+      <p>Pengajuan surat online</p>
+    </div>
+
+    <div class="card">
+      <h3>Jadwal Piket</h3>
+      <p>Cek jadwal terbaru</p>
+    </div>
+  </div>
 </div>
 
-<script src="js/redirect.js"></script>
 <script src="js/auth.js"></script>
-
-<script>
-    const user = JSON.parse(localStorage.getItem("user"));
-    document.getElementById("welcomeText").textContent = "Selamat datang, " + user.username;
-</script>
 
 </body>
 </html>
