@@ -1,57 +1,53 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Dashboard Admin - RT 05 Bangkala</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+  <meta charset="UTF-8">
+  <title>Dashboard Admin</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <script src="js/redirect.js"></script>
 </head>
 <body>
 
 <div class="sidebar">
-    <div class="brand">
-        <img src="images/logo.png" alt="Logo">
-        <h2>RT 05</h2>
-    </div>
-    
-    <a href="admin-dashboard.html" class="active">Dashboard</a>
-    <a href="pengumuman.html">Pengumuman</a>
-    <a href="layanan-surat.html">Layanan Surat</a>
-    <a href="piket.html">Jadwal Piket</a>
-    <a href="about.html">Tentang RT</a>
-    <a href="kontak.html">Kontak</a>
+  <div class="brand">
+    <img src="images/logo.png" alt="Logo">
+    <h3>Admin RT 05</h3>
+  </div>
 
-    <button onclick="logout()" class="logout-btn">Logout</button>
+  <a href="admin-dashboard.html" class="active">Dashboard</a>
+  <a href="pengumuman.html">Pengumuman</a>
+  <a href="layanan-surat.html">Layanan Surat</a>
+  <a href="piket.html">Jadwal Piket</a>
+  <a href="about.html">Tentang RT</a>
+  <a href="kontak.html">Kontak</a>
+
+  <button class="logout-btn" onclick="logout()">Logout</button>
 </div>
 
 <div class="content">
-    <header>
-        <h1>Dashboard Admin RT 05</h1>
-        <p id="welcomeText"></p>
-    </header>
+  <header>
+    <h1>Dashboard Admin</h1>
+  </header>
 
-    <div class="cards">
-        <div class="card">
-            <h3>Total Pengumuman</h3>
-            <p>3</p>
-        </div>
-        <div class="card">
-            <h3>Permintaan Surat</h3>
-            <p>5</p>
-        </div>
-        <div class="card">
-            <h3>Warga Terdaftar</h3>
-            <p>122</p>
-        </div>
+  <div class="cards">
+    <div class="card">
+      <h3>Total Warga</h3>
+      <p>125</p>
     </div>
+
+    <div class="card">
+      <h3>Pengumuman Aktif</h3>
+      <p>3</p>
+    </div>
+
+    <div class="card">
+      <h3>Layanan Surat</h3>
+      <p>12 permintaan</p>
+    </div>
+  </div>
 </div>
 
-<script src="js/redirect.js"></script>
 <script src="js/auth.js"></script>
-
-<script>
-    const user = JSON.parse(localStorage.getItem("user"));
-    document.getElementById("welcomeText").textContent = "Selamat datang, " + user.username;
-</script>
 
 </body>
 </html>
