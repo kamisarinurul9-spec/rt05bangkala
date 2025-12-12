@@ -1,6 +1,7 @@
 // redirect.js
-document.addEventListener("DOMContentLoaded", ()=>{
-  const path = window.location.pathname.split("/").pop();
-  if(["admin-dashboard.html"].includes(path)) checkAuth("admin");
-  else if(["warga-dashboard.html"].includes(path)) checkAuth("warga");
-});
+const publicPages = ["login.html","index.html"];
+const current = window.location.pathname.split("/").pop();
+if(!publicPages.includes(current)){
+  const user = JSON.parse(localStorage.getItem("user"));
+  if(!user){ window.location.href="login.html"; }
+}
