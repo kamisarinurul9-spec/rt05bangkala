@@ -1,53 +1,72 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Dashboard Admin</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0d47a1">
+  <title>Admin Dashboard - RT 05</title>
+  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="css/dashboard.css">
-  <script src="js/redirect.js"></script>
 </head>
 <body>
+  <!-- SIDEBAR -->
+  <aside class="sidebar" aria-label="Sidebar">
+    <div class="brand">
+      <img src="images/logo.png" alt="Logo">
+      <h2>RT 05</h2>
+    </div>
 
-<div class="sidebar">
-  <div class="brand">
-    <img src="images/logo.png" alt="Logo">
-    <h3>Admin RT 05</h3>
+    <nav class="side-nav">
+      <a class="active" href="admin-dashboard.html"><span class="icon">🏠</span><span class="nav-label">Dashboard</span><span class="nav-short">DB</span></a>
+      <a href="pengumuman.html"><span class="icon">📢</span><span class="nav-label">Pengumuman</span><span class="nav-short">PG</span></a>
+      <a href="layanan-surat.html"><span class="icon">📄</span><span class="nav-label">Layanan Surat</span><span class="nav-short">LS</span></a>
+      <a href="piket.html"><span class="icon">📅</span><span class="nav-label">Piket</span><span class="nav-short">PK</span></a>
+      <a href="about.html"><span class="icon">ℹ️</span><span class="nav-label">Tentang RT</span><span class="nav-short">TB</span></a>
+      <a href="kontak.html"><span class="icon">☎️</span><span class="nav-label">Kontak</span><span class="nav-short">CT</span></a>
+    </nav>
+
+    <div class="sidebar-actions">
+      <button class="btn" data-toggle-sidebar title="Toggle sidebar">⬅️</button>
+      <button class="btn" data-toggle-theme title="Toggle theme">🌓</button>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </aside>
+
+  <!-- MOBILE TOP -->
+  <div class="mobile-top">
+    <button class="mobile-menu-btn" data-mobile-menu>☰</button>
+    <div class="mobile-title">RT 05 - Admin</div>
+    <button class="btn" data-toggle-theme>🌓</button>
   </div>
 
-  <a href="admin-dashboard.html" class="active">Dashboard</a>
-  <a href="pengumuman.html">Pengumuman</a>
-  <a href="layanan-surat.html">Layanan Surat</a>
-  <a href="piket.html">Jadwal Piket</a>
-  <a href="about.html">Tentang RT</a>
-  <a href="kontak.html">Kontak</a>
-
-  <button class="logout-btn" onclick="logout()">Logout</button>
-</div>
-
-<div class="content">
-  <header>
-    <h1>Dashboard Admin</h1>
-  </header>
-
-  <div class="cards">
-    <div class="card">
-      <h3>Total Warga</h3>
-      <p>125</p>
+  <!-- CONTENT -->
+  <main class="content app-safe">
+    <div class="header-bar">
+      <div class="header-left"><h1>Dashboard Admin</h1></div>
+      <div class="header-right">
+        <div id="welcome" class="muted">—</div>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Pengumuman Aktif</h3>
-      <p>3</p>
-    </div>
+    <section class="cards">
+      <div class="card"><h3>Total Warga</h3><p id="total-warga">125</p></div>
+      <div class="card"><h3>Pengumuman Aktif</h3><p id="count-pengumuman">3</p></div>
+      <div class="card"><h3>Permintaan Surat</h3><p id="count-surat">12</p></div>
+    </section>
+  </main>
 
-    <div class="card">
-      <h3>Layanan Surat</h3>
-      <p>12 permintaan</p>
-    </div>
-  </div>
-</div>
+  <script src="js/redirect.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/ui.js"></script>
 
-<script src="js/auth.js"></script>
-
+  <script>
+    // show username and load some counters from data if available
+    const user = JSON.parse(localStorage.getItem('rtUser'));
+    document.getElementById('welcome').innerText = user ? `Selamat datang, ${user.username}` : '';
+    // load pengumuman count if data exists
+    fetch('data/pengumuman.json').then(r=>r.json()).then(arr=>{
+      document.getElementById('count-pengumuman').innerText = arr.length;
+    }).catch(()=>{});
+  </script>
 </body>
 </html>
