@@ -3,22 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login - RT 05 Bangkala</title>
+<title>Login RT 05</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<main class="login-root">
+<div class="login-root">
   <div class="login-box">
     <img src="images/logo.png" alt="Logo">
-    <h2>Portal RT 05 Bangkala</h2>
-    <form id="loginForm">
-      <input id="username" placeholder="Username" required>
-      <input id="password" type="password" placeholder="Password" required>
-      <button type="submit">Masuk</button>
+    <h2>Login RT 05</h2>
+    <form onsubmit="login(event)">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
     </form>
-    <p class="note">Admin: <b>admin / admin123</b> — Warga: <b>warga / warga123</b></p>
+    <div class="note">Username & Password: admin/admin123 atau warga/warga123</div>
   </div>
-</main>
+</div>
 <script src="js/auth.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/redirect.js"></script>
 </body>
 </html>
