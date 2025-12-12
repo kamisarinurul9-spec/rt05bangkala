@@ -4,33 +4,41 @@ const users = [
   { username: "warga", password: "warga123", role: "warga" }
 ];
 
-document.addEventListener("DOMContentLoaded", () => {
-  const loginForm = document.getElementById("loginForm");
-  if(loginForm){
-    loginForm.addEventListener("submit", e=>{
-      e.preventDefault();
-      const username = document.getElementById("username").value.trim();
-      const password = document.getElementById("password").value.trim();
-      const user = users.find(u=>u.username===username && u.password===password);
-      if(user){
-        localStorage.setItem("rtUser", JSON.stringify(user));
-        if(user.role==="admin") window.location.href="admin-dashboard.html";
-        else window.location.href="warga-dashboard.html";
-      } else alert("Username atau password salah!");
-    });
-  }
-});
+function login(event) {
+  event.preventDefault();
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value.trim();
 
-function logout(){
-  localStorage.removeItem("rtUser");
-  window.location.href="login.html";
+  const user = users.find(u => u.username === username && u.password === password);
+  if (user) {
+    localStorage.setItem("user", JSON.stringify(user));
+    if (user.role === "admin") {
+      window.location.href = "admin-dashboard.html";
+    } else {
+      window.location.href = "warga-dashboard.html";
+    }
+  } else {
+    alert("Username atau password salah!");
+  }
 }
 
-function checkAuth(role){
-  const user = JSON.parse(localStorage.getItem("rtUser"));
-  if(!user) window.location.href="login.html";
-  else if(role && user.role!==role){
-    alert("Anda tidak memiliki akses halaman ini!");
-    window.location.href="login.html";
+function checkAuth(roleRequired) {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (!user || (roleRequired && user.role !== roleRequired)) {
+    window.location.href = "login.html";
+  }
+}
+
+function logout() {
+  localStorage.removeItem("user");
+  window.location.href = "login.html";
+}
+
+// Auto-redirect untuk dashboard jika sudah login
+const user = JSON.parse(localStorage.getItem("user"));
+if (user) {
+  if (window.location.pathname.includes("login.html")) {
+    if (user.role === "admin") window.location.href = "admin-dashboard.html";
+    else window.location.href = "warga-dashboard.html";
   }
 }
