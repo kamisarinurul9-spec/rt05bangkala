@@ -1,0 +1,12 @@
+{
+  "name":"RT 05 Bangkala",
+  "short_name":"RT05",
+  "start_url":"login.html",
+  "display":"standalone",
+  "background_color":"#0d47a1",
+  "theme_color":"#0d47a1",
+  "icons":[
+    {"src":"images/logo.png","sizes":"192x192","type":"image/png"},
+    {"src":"images/logo.png","sizes":"512x512","type":"image/png"}
+  ]
+}
