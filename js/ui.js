@@ -1,15 +1,19 @@
-// ui.js - FINAL VERSION
+// ==================================
+// UI SYSTEM (Dark Mode & Theme)
+// ==================================
+
 document.addEventListener("DOMContentLoaded", () => {
   const toggleBtns = document.querySelectorAll("[data-toggle-theme]");
   const body = document.body;
 
-  // load dark mode
+  // LOAD theme
   if (localStorage.getItem("rt05_theme") === "dark") {
     body.classList.add("dark");
   }
 
+  // SWITCH theme
   toggleBtns.forEach(btn => {
-    btn.onclick = () => {
+    btn.addEventListener("click", () => {
       body.classList.toggle("dark");
 
       if (body.classList.contains("dark")) {
@@ -17,6 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         localStorage.setItem("rt05_theme", "light");
       }
-    };
+    });
   });
 });
