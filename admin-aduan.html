@@ -48,15 +48,17 @@ function loadAduan() {
     }
 
     container.innerHTML = data.map((a, index) => `
-        <div class="card" style="margin-bottom:10px">
+        <div class="aduan-card">
             <h3>${a.judul}</h3>
+
             <p><b>Nama:</b> ${a.nama}</p>
             <p>${a.isi}</p>
-            <p><small><i>${a.tanggal}</i></small></p>
 
-            <button onclick="hapusAduan(${index})" class="btn" 
-              style="background:#d9534f;color:white;margin-top:10px;">
-              Hapus
+            <small>${a.tanggal}</small>
+
+            <button onclick="hapusAduan(${index})" 
+                class="btn-delete">
+                Hapus
             </button>
         </div>
     `).join("");
