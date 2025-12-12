@@ -7,57 +7,40 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <aside class="sidebar">
-    <div class="brand">
-      <img src="images/logo.png" alt="Logo">
-      <h2>RT 05</h2>
-    </div>
-    <nav class="side-nav">
-      <a href="admin-dashboard.html"><span class="icon">🏠</span><span class="nav-label">Dashboard</span></a>
-      <a class="active" href="pengumuman.html"><span class="icon">📢</span><span class="nav-label">Pengumuman</span></a>
-      <a href="layanan-surat.html"><span class="icon">📄</span><span class="nav-label">Layanan Surat</span></a>
-      <a href="piket.html"><span class="icon">📅</span><span class="nav-label">Piket</span></a>
-      <a href="about.html"><span class="icon">ℹ️</span><span class="nav-label">Tentang RT</span></a>
-      <a href="kontak.html"><span class="icon">☎️</span><span class="nav-label">Kontak</span></a>
-    </nav>
-    <div class="sidebar-actions">
-      <button class="btn" data-toggle-sidebar>⬅️</button>
-      <button class="btn" data-toggle-theme>🌓</button>
-      <button class="logout-btn" onclick="logout()">Logout</button>
-    </div>
-  </aside>
 
-  <div class="mobile-top">
-    <button class="mobile-menu-btn" data-mobile-menu>☰</button>
-    <div class="mobile-title">Pengumuman</div>
-    <button class="btn" data-toggle-theme>🌓</button>
+  <!-- Banner -->
+  <div class="banner">
+    <img src="images/logo.png" alt="Logo RT 05" class="banner-logo">
+    <div class="banner-text">
+      <h1>Pengumuman RT 05</h1>
+      <p>Informasi terbaru untuk warga</p>
+    </div>
   </div>
 
-  <main class="content app-safe">
-    <div class="header-bar">
-      <h1>Pengumuman RT 05</h1>
-    </div>
+  <nav class="topnav">
+    <a href="admin-dashboard.html">Dashboard</a>
+    <a href="pengumuman.html" class="active">Pengumuman</a>
+    <a href="layanan-surat.html">Layanan Surat</a>
+    <a href="piket.html">Piket</a>
+    <a href="about.html">Tentang RT</a>
+    <a href="kontak.html">Kontak</a>
+  </nav>
 
-    <section class="cards" id="announceCards">
-      <!-- Cards pengumuman akan muncul di sini -->
-    </section>
-  </main>
+  <div class="container">
+    <h2>Pengumuman Terbaru</h2>
+    <ul id="announceList"></ul>
+  </div>
 
   <script src="js/redirect.js"></script>
-  <script src="js/ui.js"></script>
   <script>
-    fetch('data/pengumuman.json')
-      .then(r => r.json())
-      .then(list => {
-        const el = document.getElementById('announceCards');
-        if(list.length===0){ el.innerHTML='<p>Tidak ada pengumuman.</p>'; return; }
-        list.forEach(p => {
-          const div = document.createElement('div');
-          div.className = 'card';
-          div.innerHTML = `<h3>${p.tanggal}</h3><p>${p.isi}</p>`;
-          el.appendChild(div);
-        });
-      }).catch(()=>{document.getElementById('announceCards').innerHTML='<p>Tidak ada pengumuman.</p>';});
+    fetch('data/pengumuman.json').then(r=>r.json()).then(list=>{
+      const el = document.getElementById('announceList');
+      list.forEach(p=>{
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>${p.tanggal}</strong> — ${p.isi}`;
+        el.appendChild(li);
+      });
+    }).catch(()=>{ document.getElementById('announceList').innerHTML='<li>Tidak ada pengumuman.</li>';});
   </script>
 </body>
 </html>
