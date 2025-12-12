@@ -3,44 +3,41 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pengumuman</title>
+<title>Pengumuman - RT 05</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header>
-  <img src="images/logo.png" alt="Logo" style="width:70px;margin-bottom:8px;">
-  <h1>Pengumuman RT 05</h1>
-</header>
+<aside class="sidebar">
+  <div class="brand"><img src="images/logo.png"><h2>RT 05</h2></div>
+  <nav class="side-nav">
+    <a href="admin-dashboard.html">🏠 Dashboard</a>
+    <a class="active" href="pengumuman.html">📢 Pengumuman</a>
+    <a href="layanan-surat.html">📄 Layanan Surat</a>
+    <a href="piket.html">📅 Piket</a>
+    <a href="about.html">ℹ️ Tentang RT</a>
+    <a href="kontak.html">☎️ Kontak</a>
+  </nav>
+  <div class="sidebar-actions">
+    <button class="btn" data-toggle-theme>🌓 Dark Mode</button>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+</aside>
 
-<nav class="topnav">
-  <a href="admin-dashboard.html">Dashboard</a>
-  <a href="pengumuman.html" class="active">Pengumuman</a>
-  <a href="layanan-surat.html">Layanan Surat</a>
-  <a href="piket.html">Piket</a>
-  <a href="about.html">Tentang RT</a>
-  <a href="kontak.html">Kontak</a>
-</nav>
-
-<div class="container">
-  <h2>Pengumuman Terbaru</h2>
-  <ul id="announceList"></ul>
+<div class="mobile-top">
+  <button class="btn" data-mobile-menu>☰</button>
+  <div class="mobile-title">RT 05 - Pengumuman</div>
+  <button class="btn" data-toggle-theme>🌓</button>
 </div>
+
+<main class="content">
+  <h1>Pengumuman RT</h1>
+  <div class="container">
+    <p>Isi pengumuman terbaru akan tampil di sini...</p>
+  </div>
+</main>
 
 <script src="js/auth.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/redirect.js"></script>
-<script>
-fetch('data/pengumuman.json')
-.then(r=>r.json())
-.then(list=>{
-  const el=document.getElementById('announceList');
-  list.forEach(p=>{
-    const li=document.createElement('li');
-    li.innerHTML=`<strong>${p.tanggal}</strong> — ${p.isi}`;
-    el.appendChild(li);
-  });
-})
-.catch(()=>{document.getElementById('announceList').innerHTML='<li>Tidak ada pengumuman.</li>';});
-</script>
 </body>
 </html>
