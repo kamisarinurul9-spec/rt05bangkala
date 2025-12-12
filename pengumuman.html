@@ -8,14 +8,15 @@
 </head>
 <body>
 
-  <!-- Banner -->
-  <div class="banner">
-    <img src="images/logo.png" alt="Logo RT 05" class="banner-logo">
-    <div class="banner-text">
-      <h1>Pengumuman RT 05</h1>
-      <p>Informasi terbaru untuk warga</p>
+  <header>
+    <div class="banner">
+      <img src="images/logo.png" alt="Logo RT 05" class="banner-logo">
+      <div class="banner-text">
+        <h1>Pengumuman RT 05</h1>
+        <p>Informasi terbaru warga</p>
+      </div>
     </div>
-  </div>
+  </header>
 
   <nav class="topnav">
     <a href="admin-dashboard.html">Dashboard</a>
@@ -33,14 +34,16 @@
 
   <script src="js/redirect.js"></script>
   <script>
-    fetch('data/pengumuman.json').then(r=>r.json()).then(list=>{
-      const el = document.getElementById('announceList');
-      list.forEach(p=>{
-        const li = document.createElement('li');
-        li.innerHTML = `<strong>${p.tanggal}</strong> — ${p.isi}`;
-        el.appendChild(li);
-      });
-    }).catch(()=>{ document.getElementById('announceList').innerHTML='<li>Tidak ada pengumuman.</li>';});
+    fetch('data/pengumuman.json')
+      .then(r=>r.json())
+      .then(list=>{
+        const el = document.getElementById('announceList');
+        list.forEach(p=>{
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>${p.tanggal}</strong> — ${p.isi}`;
+          el.appendChild(li);
+        });
+      }).catch(()=>{document.getElementById('announceList').innerHTML='<li>Tidak ada pengumuman.</li>';});
   </script>
 </body>
 </html>
