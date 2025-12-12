@@ -8,10 +8,7 @@
 </head>
 <body>
 <aside class="sidebar">
-  <div class="brand">
-    <img src="images/logo.png" alt="Logo">
-    <h2>RT 05</h2>
-  </div>
+  <div class="brand"><img src="images/logo.png"><h2>RT 05</h2></div>
   <nav class="side-nav">
     <a class="active" href="admin-dashboard.html">🏠 Dashboard</a>
     <a href="pengumuman.html">📢 Pengumuman</a>
@@ -35,20 +32,15 @@
 <main class="content">
   <h1>Dashboard Admin</h1>
   <section class="cards">
-    <div class="card"><h3>Total Warga</h3><p id="total-warga">125</p></div>
-    <div class="card"><h3>Pengumuman Aktif</h3><p id="count-pengumuman">0</p></div>
-    <div class="card"><h3>Permintaan Surat</h3><p id="count-surat">12</p></div>
+    <div class="card"><h3>Pengumuman</h3><p>Kelola pengumuman RT</p></div>
+    <div class="card"><h3>Layanan Surat</h3><p>Proses permintaan surat</p></div>
+    <div class="card"><h3>Jadwal Piket</h3><p>Atur jadwal piket</p></div>
   </section>
 </main>
 
 <script src="js/auth.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/redirect.js"></script>
-<script>
-checkAuth("admin");
-fetch('data/pengumuman.json').then(r=>r.json()).then(arr=>{
-  document.getElementById('count-pengumuman').innerText = arr.length;
-}).catch(()=>{});
-</script>
+<script>checkAuth("admin");</script>
 </body>
 </html>
