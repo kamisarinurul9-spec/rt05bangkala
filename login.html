@@ -5,14 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login RT 05</title>
 <link rel="stylesheet" href="css/style.css">
+<style>
+  /* Tambahan style untuk sambutan */
+  .welcome-message {
+    font-size: 1.1rem;
+    color: #555;
+    text-align: center;
+    margin: 10px 0 20px 0;
+    line-height: 1.4;
+  }
+  .login-box p.location {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #777;
+  }
+</style>
 </head>
 <body>
 <div class="login-root">
   <div class="login-box">
     <img src="images/logo.png" alt="Logo">
     <h2>Login RT 05</h2>
-    <p>Kel. Bangkala, Kec. Manggala</p>
-    <p>Kota Makassar</p>
+    <p class="location">Kel. Bangkala, Kec. Manggala</p>
+    <p class="location">Kota Makassar</p>
+
+    <!-- Sambutan -->
+    <p class="welcome-message">
+      Selamat datang di Portal Resmi RT 05. Silakan masuk dengan akun Anda untuk mengakses informasi dan layanan warga.
+    </p>
+
     <form onsubmit="login(event)">
       <input type="text" id="username" placeholder="Username" required>
       <input type="password" id="password" placeholder="Password" required>
