@@ -1,39 +1,37 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Jadwal Piket</title>
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/redirect.js"></script>
 </head>
 <body>
+  <header><h1>Jadwal Piket</h1></header>
+  <nav class="topnav">
+    <a href="admin-dashboard.html">Dashboard</a>
+    <a href="piket.html" class="active">Piket</a>
+    <a href="pengumuman.html">Pengumuman</a>
+    <a href="layanan-surat.html">Layanan Surat</a>
+    <a href="about.html">Tentang RT</a>
+    <a href="kontak.html">Kontak</a>
+  </nav>
 
-<header>
-  <h1>Jadwal Piket Warga</h1>
-</header>
+  <div class="container">
+    <h2>Minggu Ini</h2>
+    <ul id="piketList"></ul>
+  </div>
 
-<nav>
-  <a href="admin-dashboard.html">Dashboard</a>
-  <a href="piket.html" class="active">Piket</a>
-  <a href="pengumuman.html">Pengumuman</a>
-  <a href="layanan-surat.html">Layanan Surat</a>
-  <a href="about.html">Tentang RT</a>
-  <a href="kontak.html">Kontak</a>
-</nav>
-
-<div class="container">
-  <h2>Minggu Ini</h2>
-
-  <ul>
-    <li>Senin — Andi & Budi</li>
-    <li>Selasa — Rina & Rudi</li>
-    <li>Rabu — Santi & Usman</li>
-    <li>Kamis — Taufik & Mila</li>
-    <li>Jumat — Fajar & Yuni</li>
-  </ul>
-</div>
-
-<footer>© 2025 RT 05 Bangkala</footer>
-
+  <script src="js/redirect.js"></script>
+  <script>
+    fetch('data/piket.json').then(r=>r.json()).then(list=>{
+      const el = document.getElementById('piketList');
+      list.forEach(p=>{
+        const li = document.createElement('li');
+        li.textContent = `${p.hari} — ${p.petugas}`;
+        el.appendChild(li);
+      });
+    }).catch(()=>{ document.getElementById('piketList').innerHTML='<li>Tidak ada jadwal.</li>';});
+  </script>
 </body>
 </html>
