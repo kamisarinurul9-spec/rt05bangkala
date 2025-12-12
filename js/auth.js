@@ -1,6 +1,9 @@
 // auth.js
 const users = [
-  { username:"admin", password:"admin123", role:"admin" },
+  { username:"admin", password:"bangkalart05", role:"admin" },
+  { username:"accunk", password:"sampoerna16", role:"admin" },  
+  { username:"bongkar", password:"Bismillah123", role:"admin" },
+  { username:"salman", password:"salman123", role:"warga" },
   { username:"warga", password:"warga123", role:"warga" }
 ];
 
