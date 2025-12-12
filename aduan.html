@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aduan Warga - RT 05</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="brand"><img src="images/logo.png"><h2>RT 05</h2></div>
+
+  <nav class="side-nav">
+    <a href="warga-dashboard.html">🏠 Dashboard</a>
+    <a href="pengumuman.html">📢 Pengumuman</a>
+    <a href="layanan-surat.html">📄 Layanan Surat</a>
+    <a href="piket.html">📅 Piket</a>
+    <a href="about.html">ℹ️ Tentang RT</a>
+    <a href="kontak.html">☎️ Kontak</a>
+    <a class="active" href="aduan.html">📝 Aduan</a>
+  </nav>
+
+  <div class="sidebar-actions">
+    <button class="btn" data-toggle-theme>🌓 Dark Mode</button>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+</aside>
+
+<main class="content">
+  <h1>Kirim Aduan Warga</h1>
+
+  <div class="container">
+
+    <form id="aduanForm">
+      <label>Nama Pengirim</label>
+      <input type="text" id="nama" required>
+
+      <label>Judul Aduan</label>
+      <input type="text" id="judul" required>
+
+      <label>Isi Aduan</label>
+      <textarea id="isi" rows="5" required></textarea>
+
+      <button type="submit" class="btn">Kirim Aduan</button>
+    </form>
+
+    <p id="statusMsg" style="margin-top:10px;"></p>
+
+  </div>
+</main>
+
+<script src="js/auth.js"></script>
+<script src="js/ui.js"></script>
+
+<script>
+// Simpan aduan ke LocalStorage (atau server jika tersedia)
+document.getElementById("aduanForm").onsubmit = function (e) {
+    e.preventDefault();
+
+    const nama = document.getElementById("nama").value;
+    const judul = document.getElementById("judul").value;
+    const isi = document.getElementById("isi").value;
+
+    const data = JSON.parse(localStorage.getItem("aduan")) || [];
+
+    data.push({
+        nama,
+        judul,
+        isi,
+        tanggal: new Date().toLocaleString()
+    });
+
+    localStorage.setItem("aduan", JSON.stringify(data));
+
+    document.getElementById("statusMsg").innerHTML =
+      "<span style='color:green'>Aduan berhasil dikirim!</span>";
+
+    document.getElementById("aduanForm").reset();
+};
+</script>
+
+</body>
+</html>
