@@ -1,11 +1,14 @@
-// redirect.js final
+// ==================================
+// MOBILE SIDEBAR TOGGLE
+// ==================================
+
 document.addEventListener("DOMContentLoaded", () => {
-  const menuBtn = document.querySelector("[data-mobile-menu]");
+  const btn = document.querySelector("[data-mobile-menu]");
   const sidebar = document.querySelector(".sidebar");
 
-  if (menuBtn) {
-    menuBtn.onclick = () => {
+  if (btn && sidebar) {
+    btn.addEventListener("click", () => {
       sidebar.classList.toggle("open");
-    };
+    });
   }
 });
