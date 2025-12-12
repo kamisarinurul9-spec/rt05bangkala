@@ -1,31 +1,36 @@
-const users = [
-  { username: "admin", password: "admin123", level: "admin" },
-  { username: "warga", password: "warga123", level: "warga" }
-];
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("loginForm");
 
-function login() {
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
+    if (!form) return;
 
-  const user = users.find(
-    u => u.username === username && u.password === password
-  );
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-  if (!user) {
-    alert("Username atau password salah!");
-    return;
-  }
+        const user = document.getElementById("username").value.trim();
+        const pass = document.getElementById("password").value.trim();
 
-  localStorage.setItem("user", JSON.stringify(user));
+        // User database (bisa tambah nanti)
+        const users = {
+            "admin": { password: "admin123", level: "admin" },
+            "warga": { password: "warga123", level: "warga" }
+        };
 
-  if (user.level === "admin") {
-    window.location.href = "admin-dashboard.html";
-  } else {
-    window.location.href = "warga-dashboard.html";
-  }
-}
+        // Validasi login
+        if (users[user] && users[user].password === pass) {
+            // Simpan sesi login
+            localStorage.setItem("rt05_logged_in", "true");
+            localStorage.setItem("rt05_user_level", users[user].level);
+            localStorage.setItem("rt05_username", user);
 
-function logout() {
-  localStorage.removeItem("user");
-  window.location.href = "login.html";
-}
+            // Redirect berdasarkan role
+            if (users[user].level === "admin") {
+                window.location.href = "admin-dashboard.html";
+            } else {
+                window.location.href = "warga-dashboard.html";
+            }
+
+        } else {
+            alert("Username atau password salah!");
+        }
+    });
+});
