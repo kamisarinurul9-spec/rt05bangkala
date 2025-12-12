@@ -67,23 +67,21 @@ header{
 .logout-btn{background:#e53935;color:#fff;}
 
 /* ====== Mobile Sidebar ====== */
-@media(max-width:768px){
-    .sidebar{
-        transform:translateX(-260px);
-        position:fixed;
-        top:0;left:0;
-        height:100%;
-    }
-    .sidebar.show-mobile{
-        transform:translateX(0);
-    }
-    .content{margin-left:0;width:100%;transition:0.3s;}
-    body.sidebar-open::after{
-        content:'';
-        position:fixed;top:0;left:0;width:100%;height:100%;
-        background:rgba(0,0,0,0.3);z-index:900;
-    }
+/* Mobile sidebar */
+.sidebar {
+  position: fixed;
+  left: 0; top: 0;
+  width: 250px;
+  height: 100%;
+  background:#0d47a1;
+  color:#fff;
+  transform: translateX(-260px);
+  transition: transform 0.3s;
+  z-index: 1000;
 }
+.sidebar.open { transform: translateX(0); }
+.mobile-top { display:flex; justify-content:space-between; align-items:center; padding:10px; background:#0d47a1; color:#fff; }
+@media(min-width:768px){ .mobile-top{ display:none; } .sidebar{transform:none;} }
 
 /* ====== Content ====== */
 .content{
