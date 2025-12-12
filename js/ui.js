@@ -1,26 +1,16 @@
-// ==================================
-// UI SYSTEM (Dark Mode & Theme)
-// ==================================
+// ui.js
+document.addEventListener("DOMContentLoaded",()=>{
+  const menuBtn = document.querySelector("[data-mobile-menu]");
+  const sidebar = document.querySelector(".sidebar");
+  menuBtn?.addEventListener("click",()=>{sidebar.classList.toggle("open");});
 
-document.addEventListener("DOMContentLoaded", () => {
-  const toggleBtns = document.querySelectorAll("[data-toggle-theme]");
-  const body = document.body;
-
-  // LOAD theme
-  if (localStorage.getItem("rt05_theme") === "dark") {
-    body.classList.add("dark");
-  }
-
-  // SWITCH theme
-  toggleBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      body.classList.toggle("dark");
-
-      if (body.classList.contains("dark")) {
-        localStorage.setItem("rt05_theme", "dark");
-      } else {
-        localStorage.setItem("rt05_theme", "light");
-      }
+  const themeBtns = document.querySelectorAll("[data-toggle-theme]");
+  themeBtns.forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      document.body.classList.toggle("dark");
+      localStorage.setItem("theme",document.body.classList.contains("dark")?"dark":"light");
     });
   });
+
+  if(localStorage.getItem("theme")==="dark") document.body.classList.add("dark");
 });
