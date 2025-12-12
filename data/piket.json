@@ -1,7 +1,7 @@
 [
-  {"hari": "Senin", "petugas": "Pak Amir & Ibu Rina"},
-  {"hari": "Selasa", "petugas": "Pak Hari"},
-  {"hari": "Rabu", "petugas": "Ibu Yuni"},
-  {"hari": "Kamis", "petugas": "Pak Wawan"},
-  {"hari": "Jumat", "petugas": "Ibu Lilis"}
+  {"hari":"Senin","petugas":"Pak Budi, Pak Tono"},
+  {"hari":"Selasa","petugas":"Pak Ari, Pak Deny"},
+  {"hari":"Rabu","petugas":"Pak Rudi, Pak Bambang"},
+  {"hari":"Kamis","petugas":"Pak Lukman, Pak Wawan"},
+  {"hari":"Jumat","petugas":"Pak Burhan, Pak Ilham"}
 ]
