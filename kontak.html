@@ -5,10 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kontak RT 05</title>
 <link rel="stylesheet" href="css/style.css">
+
+<style>
+  .brand .location {
+    font-size: 0.75rem;
+    color: #bbb;
+    text-align: center;
+    margin-top: -5px;
+    line-height: 1.2;
+  }
+</style>
 </head>
 <body>
 <aside class="sidebar">
-  <div class="brand"><img src="images/logo.png"><h2>RT 05</h2></div>
+  <div class="brand">
+    <img src="images/logo.png">
+    <h2>RT 05</h2>
+
+    <!-- Lokasi -->
+    <div class="location">
+      Kel. Bangkala, Kec. Manggala<br>
+      Kota Makassar
+    </div>
+  </div>
+
   <nav class="side-nav">
     <a href="admin-dashboard.html">🏠 Dashboard</a>
     <a href="pengumuman.html">📢 Pengumuman</a>
@@ -17,6 +37,7 @@
     <a href="about.html">ℹ️ Tentang RT</a>
     <a class="active" href="kontak.html">☎️ Kontak</a>
   </nav>
+
   <div class="sidebar-actions">
     <button class="btn" data-toggle-theme>🌓 Dark Mode</button>
     <button class="logout-btn" onclick="logout()">Logout</button>
@@ -32,7 +53,17 @@
 <main class="content">
   <h1>Kontak RT 05</h1>
   <div class="container">
-    <p>Alamat RT, nomor telepon, email, WA, dan kontak penting lainnya...</p>
+    <p>
+      Informasi kontak resmi RT 05 dapat dihubungi melalui:
+    </p>
+
+    <ul>
+      <li><strong>Alamat:</strong> Jl. Tamangapa Raya III, Kel. Bangkala, Kec. Manggala, Makassar</li>
+      <li><strong>Nama Ketua RT:</strong> Nasaruddin</li>
+      <li><strong>Email:</strong> emailketuaRT05bangkala@example.com</li>
+      <li><strong>Telepon Ketua RT:</strong> 0821-9165-2722</li>
+      <li><strong>Jam Layanan:</strong> 08:00 – 20:00 WITA</li>
+    </ul>
   </div>
 </main>
 
