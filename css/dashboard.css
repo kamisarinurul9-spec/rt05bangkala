@@ -3,7 +3,7 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: #f4f7ff;
+    background: #f4f6ff;
     display: flex;
 }
 
@@ -11,20 +11,20 @@ body {
 .sidebar {
     width: 240px;
     height: 100vh;
-    background: #003c8f;
-    color: #fff;
-    padding: 20px 0;
+    background: #0d47a1;
+    color: white;
     position: fixed;
+    padding: 15px 0;
     display: flex;
     flex-direction: column;
 }
 
 .sidebar .brand {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
-.sidebar .brand img {
+.sidebar img {
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -32,27 +32,25 @@ body {
 
 .sidebar a {
     padding: 12px 20px;
-    color: #fff;
-    text-decoration: none;
     display: block;
+    text-decoration: none;
+    color: white;
     font-size: 15px;
-    transition: 0.2s;
 }
 
 .sidebar a:hover,
 .sidebar a.active {
-    background: #0057c2;
+    background: rgba(255,255,255,0.2);
 }
 
 .logout-btn {
     margin-top: auto;
-    padding: 12px 20px;
-    background: #ff3b3b;
+    padding: 12px;
+    width: 100%;
+    background: #e53935;
     border: none;
     color: white;
     cursor: pointer;
-    width: 100%;
-    font-size: 15px;
 }
 
 /* CONTENT */
@@ -65,30 +63,31 @@ body {
 header h1 {
     margin: 0;
     font-size: 26px;
-    color: #003c8f;
+    color: #0d47a1;
 }
 
 .cards {
-    margin-top: 20px;
+    margin-top: 25px;
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
 .card {
     background: white;
     padding: 20px;
+    width: 260px;
     border-radius: 12px;
-    width: 30%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .card h3 {
     margin: 0 0 10px;
-    color: #003c8f;
+    color: #0d47a1;
     font-size: 18px;
 }
 
 .card p {
-    font-size: 24px;
+    font-size: 22px;
     color: #333;
 }
