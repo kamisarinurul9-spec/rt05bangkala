@@ -1,14 +1,7 @@
-// ==================================
-// MOBILE SIDEBAR TOGGLE
-// ==================================
-
-document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.querySelector("[data-mobile-menu]");
-  const sidebar = document.querySelector(".sidebar");
-
-  if (btn && sidebar) {
-    btn.addEventListener("click", () => {
-      sidebar.classList.toggle("open");
-    });
-  }
-});
+// redirect.js
+const publicPages = ["login.html","index.html"];
+const current = window.location.pathname.split("/").pop();
+if(!publicPages.includes(current)){
+  const user = JSON.parse(localStorage.getItem("user"));
+  if(!user){ window.location.href="login.html"; }
+}
